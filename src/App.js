@@ -1,11 +1,15 @@
 import "./App.css"
 import React from "react"
+import { Rotas } from "./Routes/routes"
+import { Menu } from "./Components/Menu/menu"
 
 function App() {
-	return (
+	return(
 		<>
-			<h1> Olá </h1>
+			<Menu/>
+			<Rotas/>
 		</>
+		
 	)
 }
 

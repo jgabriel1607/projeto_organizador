@@ -1,5 +1,5 @@
-import { Api } from "../ApiConfig"
-import { ApiException } from "../ErrorException"
+/* import { Api } from "../ApiConfig"
+import { ApiException } from "../ApiException"
 
 export interface IGame {
     id: number
@@ -54,3 +54,4 @@ export const GamesServices = {
     updateById,
     deleteById
 }
+ */

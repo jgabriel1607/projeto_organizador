@@ -1,38 +1,194 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body{
+  width: 100%;
+  height: 100%;
+  background-color: #141414;
+  margin: auto;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-family: "Century Gothic";
+}
+
+body a{
+  text-decoration: none;
+}
+
+#root{
+  width: 100%;
+  height: 100%;
+}
+
+.menu{
+  width: 100%;
+  height: 50px;
+  background-color: #494949;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  position: fixed;
+  line-height: 8px;
+  font-size: 15px;
+  font-weight: bold;
+  box-shadow: 0px 4px 0px #e62626;
+}
+
+.menuLink{
+  margin: 0 5px;
+  padding: 20px 5px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.menuLink:hover{  
+  padding: 28px 5px;
+  background-color: #141414;
+  box-shadow: 0px 4px 0px #e62626;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.content{
+  width: 96%;
+  margin: 70px auto; 
+  color: white;
 }
+
+.titleGames{
+  margin: 20px 5px 30px;
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+}
+
+.gamesList{
+  width: 100%;
+  height: max-content;  
+  margin: auto;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;  
+}
+
+.card{
+  width: 12%;
+  margin: 4px;
+  text-align: center;
+  color: white;
+}
+
+.gameCover{  
+  width: 100%;
+  height: auto;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.gameCoverLink:hover{
+  outline: solid 3px #e62626;
+  border-radius: 10px;
+}
+
+.registerGame{
+  color: white;
+}
+
+.game{
+  width: 85%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.aboutGame{
+  width: 65%;
+  min-height: 600px;
+  height: fit-content;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+.gameTitle{
+  margin: 10px auto;
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+}
+
+.gameBackgroundImage{
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.gameSummary{
+  width: 100%;
+  font-size: 20px;
+  text-align: justify;
+}
+
+.gameSummary p {
+  padding: 15px;
+  line-height: 28px;
+}
+
+.infoGame{
+  width: 35%;
+  height: 600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.previousPage{
+  width: 85%;
+  height: 50px;
+  margin: auto;
+}
+
+.previousPage a{  
+  color: #e62626;
+  margin: 15px;
+  font-size: 25px;
+  line-height: 50px;
+}
+
+.infomItems{
+  margin: 50px 10px;
+}
+
+.infoItem{
+  margin: 10px;
+  display: flex;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.infoItemTitle{
+  color: #e62626;
+  font-weight: bold;
+  margin: 0 20px;
+}
+
+.infoItemP{
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

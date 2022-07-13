@@ -1,17 +1,16 @@
+import "./reset.css"
 import "./App.css"
-import React from "react"
+import { React, useEffect, useState } from "react"
 import { Rotas } from "./Routes/routes"
-import { Menu } from "./Components/Menu/menu"
+import { Menu } from "./components/menu/menu"
 
-function App() {
-
-	return(
-		<>
-			<Menu/>
-			<Rotas/>
-		</>
-		
-	)
+function App() {  
+  return(  
+    <>
+    <Menu/>
+    <Rotas/>
+    </>
+  )
 }
 
-export default App
+export default App;

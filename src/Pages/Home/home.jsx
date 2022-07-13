@@ -1,13 +1,13 @@
-import React from "react"
+import GamesList from "../../components/games/gamesList";
 
-export const Home = () => {
-	return(
-		<>
-			<div>
-				<h1>
-					Home
-				</h1>
-			</div>
-		</>
-	)
-}
+export const Home = ({games, setGames}) => { 
+
+  return (
+    <>
+      <section className="content">
+        <h1 className="titleGames"> Lista de Jogos </h1>
+        <GamesList games={games}/>
+      </section>
+    </>
+  );
+};

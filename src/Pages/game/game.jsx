@@ -33,10 +33,10 @@ export const Game = ({ games, setGames }) => {
 
   return (
     <>
-      <section className="content">
-        <section className="game">
+      <main className="main">
+        <section className="content">
           <section className="aboutGame">
-            <h1 className="gameTitle"> {gameTitle} </h1>
+            <h1 className="gamesTitle"> {gameTitle} </h1>
             <img
               src={gameBackgroundImage}
               alt="gameBackgroundImge"
@@ -53,32 +53,36 @@ export const Game = ({ games, setGames }) => {
                 <p className="infoItemP"> {gameStatus} </p>
               </div>
               <div className="infoItem">
-                <h2 className="infoItemTitle"> Genre: </h2>
+                <h2 className="infoItemTitle"> Gêneros: </h2>
                 <p className="infoItemP"> {gameGenre} </p>
               </div>
               <div className="infoItem">
-                <h2 className="infoItemTitle"> Developers: </h2>
+                <h2 className="infoItemTitle"> Desenvolvedores: </h2>
                 <p className="infoItemP"> {gameDevelopers} </p>
               </div>
               <div className="infoItem">
-                <h2 className="infoItemTitle"> Publishers: </h2>
+                <h2 className="infoItemTitle"> Publicadoras: </h2>
                 <p className="infoItemP"> {gamePublishers} </p>
               </div>
               <div className="infoItem">
-                <h2 className="infoItemTitle"> Release Date: </h2>
+                <h2 className="infoItemTitle"> Data de Lançamento: </h2>
                 <p className="infoItemP"> {gameReleaseDate} </p>
               </div>
               <div className="infoItem">
-                <h2 className="infoItemTitle"> Platform List: </h2>
+                <h2 className="infoItemTitle"> Plataformas: </h2>
                 <p className="infoItemP"> {gamePlatformList} </p>
               </div>
+            </div>
+            <div className="infoLinks">
+              <a href="#"> Editar </a>
+              <a href="#"> Excluir </a>
             </div>
           </section>
         </section>
         <section className="previousPage">
           <Link to={"/"}> Voltar </Link>
         </section>
-      </section>
+      </main>
     </>
   );
 };

@@ -2,7 +2,9 @@
 ✔ Map of games @done(22-07-13 08:50)
 ✔ Routes @done(22-07-13 08:50)
 ✔ Page of each game @done(22-07-13 08:50)
-☐ Register Game Page (HTML)
+✔ Register Game Page (HTML) @done(22-07-18 11:16)
+☐ Busca e Filtros (HTML)
+☐ Busca e Filtros (React)
 ☐ Add game 
 ☐ Edit game
 ☐ Remove game

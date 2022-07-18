@@ -1,7 +1,7 @@
 body{
   width: 100%;
   height: 100%;
-  background-color: #141414;
+  background-color: #242424;
   margin: auto;
   display: flex;
   justify-content: center;
@@ -17,6 +17,8 @@ body a{
   height: 100%;
 }
 
+/* Componente Menu */
+
 .menu{
   width: 100%;
   height: 50px;
@@ -28,7 +30,7 @@ body a{
   line-height: 8px;
   font-size: 15px;
   font-weight: bold;
-  box-shadow: 0px 4px 0px #e62626;
+  box-shadow: 0px 4px 0px #c73030;
 }
 
 .menuLink{
@@ -38,15 +40,18 @@ body a{
 }
 
 .menuLink:hover{  
-  padding: 28px 5px;
+  padding: 20px 5px;
   background-color: #141414;
-  box-shadow: 0px 4px 0px #e62626;
+  box-shadow: 0px 4px 0px #c73030;
 }
 
-.content{
+/* Componente Home */
+
+.main{
   width: 96%;
   margin: 70px auto; 
   color: white;
+
 }
 
 .titleGames{
@@ -81,15 +86,13 @@ body a{
 }
 
 .gameCoverLink:hover{
-  outline: solid 3px #e62626;
+  outline: solid 3px #c73030;
   border-radius: 10px;
 }
 
-.registerGame{
-  color: white;
-}
+/* Componente Game */
 
-.game{
+.content{
   width: 85%;
   margin: auto;
   display: flex;
@@ -104,7 +107,7 @@ body a{
   display: flex;
   flex-direction: column;
 }
-.gameTitle{
+.gamesTitle{
   margin: 10px auto;
   font-size: 30px;
   font-weight: bold;
@@ -130,7 +133,6 @@ body a{
 
 .infoGame{
   width: 35%;
-  height: 600px;
   margin: 0 auto;
   display: flex;
   justify-content: flex-start;
@@ -144,7 +146,7 @@ body a{
 }
 
 .previousPage a{  
-  color: #e62626;
+  color: #c73030;
   margin: 15px;
   font-size: 25px;
   line-height: 50px;
@@ -162,15 +164,139 @@ body a{
 }
 
 .infoItemTitle{
-  color: #e62626;
+  color: #c73030;
   font-weight: bold;
   margin: 0 20px;
 }
 
 .infoItemP{
+  line-height: 26px;
 }
 
+.infoLinks{
+  margin: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
 
+.infoLinks a{
+  color: #c73030;
+  margin: 0px 15px;
+  font-size: 20px;
+}
+
+/* Componente Register */
+
+.registerGame{
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  color: white;
+}
+
+.registerLeftSide{
+  height: 96%;
+  width: 45%;
+  margin: 1%;
+}
+
+.registerRightSide{
+  height: 96%;
+  width: 55%;
+  margin: 1%;
+  box-shadow: -3px 0px 0px 0px #c73030;
+}
+
+.registerItem{
+  margin: 20px 15px;
+  padding: 2px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.labelTitle{
+  margin: 0 15px 0 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #c73030;
+}
+
+.textInputs{
+  width: 340px;
+  height: 20px;
+  border-radius: 6px;
+  border: none;
+}
+
+.areaInput{
+  width: 340px;
+  height: 130px;
+  border-radius: 6px;
+  border: none;
+  resize: none;
+}
+
+.dataInput{  
+  width: 180px;
+  height: 20px;
+  border-radius: 6px;
+  border: none;
+}
+
+.itemImages{
+  width: 70%;
+  margin: auto 0 auto auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.titleImages{
+  margin: 0 15px 0 0;
+}
+
+.images{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 0 25px 0;
+}
+
+.itemStatus{
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.status{
+  margin: auto;
+}
+
+.itemGenre, .itemPlatform{
+  width: 100%;
+  margin: auto;
+  padding: 2px;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.genre, .platform{
+  margin: 0 0 20px 20px;
+}
+
+.submitInput{
+  width: 80px;
+  height: 30px;
+  margin: auto 0 auto auto;
+  border-radius: 6px;
+  border: none;
+  font-size: 25px;
+  color: #c73030;
+  background: none;
+}
 
 
 

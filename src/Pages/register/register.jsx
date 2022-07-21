@@ -1,5 +1,6 @@
 /* backgroundImage, developers, genres, id, platformList, publishers, releaseDate, squareIcon, status, summary, title, verticalCover */
 import React from "react";
+import { Submenu } from "../../components/submenu/submenu";
 
 export const Register = () => {
   return (
@@ -86,7 +87,7 @@ export const Register = () => {
 							</div>
 							<div className="genre">
 								<input type="checkbox" name="card-board" id="card-board"/> 
-								<label htmlFor="card-board"> Card and Board Game </label>
+								<label htmlFor="card-board"> Card and Boardgame </label>
 							</div>
 							<div className="genre">
 								<input type="checkbox" name="dungeon-crawler" id="dungeon-crawler"/> 
@@ -109,8 +110,8 @@ export const Register = () => {
 								<label htmlFor="metroidvania"> Metroidvania </label>
 							</div>
 							<div className="genre">
-								<input type="checkbox" name="music" id="music"/> 
-								<label htmlFor="music"> Music </label>
+								<input type="checkbox" name="music-rhythm" id="music-rhythm"/> 
+								<label htmlFor="music-rhythm"> Music and Rhythm </label>
 							</div>
 							<div className="genre">
 								<input type="checkbox" name="pinball" id="pinball"/> 
@@ -135,10 +136,6 @@ export const Register = () => {
 							<div className="genre">
 								<input type="checkbox" name="rts" id="rts"/> 
 								<label htmlFor="rts"> Real Time Strategy (RTS) </label>
-							</div>
-							<div className="genre">
-								<input type="checkbox" name="rhythm" id="rhythm"/> 
-								<label htmlFor="rhythm"> Rhythm </label>
 							</div>
 							<div className="genre">
 								<input type="checkbox" name="roguelike" id="roguelike"/> 
@@ -199,7 +196,7 @@ export const Register = () => {
 							</div>
 							<div className="platform">
 								<input type="checkbox" name="nintendo-64" id="nintendo-64"/> 
-								<label htmlFor="nintendo-64"> Nintendo 64</label>
+								<label htmlFor="nintendo-64"> Nintendo 64 </label>
 							</div>
 							<div className="platform">
 								<input type="checkbox" name="ds" id="ds"/> 
@@ -215,7 +212,7 @@ export const Register = () => {
 							</div>
 							<div className="platform">
 								<input type="checkbox" name="nes" id="nes"/> 
-								<label htmlFor="nes"> Nintendo Entertainment System (NES)</label>
+								<label htmlFor="nes"> Nintendo Entertainment System (NES) </label>
 							</div>
 							<div className="platform">
 								<input type="checkbox" name="gamecube" id="gamecube"/> 
@@ -235,7 +232,7 @@ export const Register = () => {
 							</div>
 							<div className="platform">
 								<input type="checkbox" name="wii-u" id="wii-u"/> 
-								<label htmlFor="wii-u"> Nintendo Wii U</label>
+								<label htmlFor="wii-u"> Nintendo Wii U </label>
 							</div>
 							<div className="platform">
 								<input type="checkbox" name="origin" id="origin"/> 

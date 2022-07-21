@@ -264,7 +264,7 @@
     "backgroundImage": "https://images.gog.com/2a279020ae560b75e393e0fb185c1e037b35c8ee12f27ae04e606ee3952f5137_glx_bg_top_padding_7.webp?namespace=gamesdb",
     "squareIcon": "https://images.gog.com/6f9e84b42a9f06f9d5555eb632635376cde5a845ab3d986844b12c09745a2bb4_glx_square_icon_v2.webp?namespace=gamesdb",
     "verticalCover": "https://images.gog.com/07083bbcfcdeae9d6f73757f113e8bab09f329f4e94f8bf79e5f08da5d69a90c_glx_vertical_cover.webp?namespace=gamesdb",
-    "status": ""
+    "status": "Playing"
   },
   {
     "id": 20,
@@ -558,7 +558,7 @@
     "backgroundImage": "https://images.gog.com/b2a8230080dcf33f534467274353f641c625dd5e2ed7e466358dbf727a957eea_glx_bg_top_padding_7.webp?namespace=gamesdb",
     "squareIcon": "https://images.gog.com/d508d6ca41d21cc768e0b95ef483117bc8c822825c2bd53e9cd57ddb3b0ec77b_glx_square_icon_v2.webp?namespace=gamesdb",
     "verticalCover": "https://images.gog.com/24996642e2e47176b3b55109aa5598ede6441b6f2d7f5568f66d67974aa4a415_glx_vertical_cover.webp?namespace=gamesdb",
-    "status": ""
+    "status": "Completed"
   },
   {
     "id": 41,
@@ -572,7 +572,7 @@
     "backgroundImage": "https://images.gog.com/6ca1d99f3ad52525203055785eda27fab77f6be4807f8b238d861791e0bdd40d_glx_bg_top_padding_7.webp?namespace=gamesdb",
     "squareIcon": "https://images.gog.com/c79c4818833b93d044a745dd31986ccd669fce9447352c87db9d4a78753984cd_glx_square_icon_v2.webp?namespace=gamesdb",
     "verticalCover": "https://images.gog.com/bb5a5ddd6b967a80b17849ec26a54fa87b89881da15d693df5c23e6d21b3571c_glx_vertical_cover.webp?namespace=gamesdb",
-    "status": ""
+    "status": "Completed"
   },
   {
     "id": 42,
@@ -698,7 +698,7 @@
     "backgroundImage": "https://images.gog.com/fe457fa38ece7c93436c6aa9f2ca789afdb9df872eb5bb8b8eb47e918a222285_glx_bg_top_padding_7.webp?namespace=gamesdb",
     "squareIcon": "https://images.gog.com/5148b840cdb4a8c36ace0be14875e0af17ff0d69269524afd5a528c13bbcb979_glx_square_icon_v2.webp?namespace=gamesdb",
     "verticalCover": "https://images.gog.com/5148b840cdb4a8c36ace0be14875e0af17ff0d69269524afd5a528c13bbcb979_glx_vertical_cover.webp?namespace=gamesdb",
-    "status": ""
+    "status": "Completed"
   },
   {
     "id": 51,

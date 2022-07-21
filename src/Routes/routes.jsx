@@ -7,17 +7,14 @@ import { api } from "../services/api/apiConfig"
 
 export const Rotas = () =>{
 	const [games, setGames] = useState([])
-	const [thisGame, setThisGame] = useState()
 
 	useEffect(() => {
 		async function getGames(){
 		const response = await api.get("/games")
 		setGames(response.data)
 		}
-		getGames()
+		getGames()		
   	}, [])
-
-	
 
 	return(
 		<>

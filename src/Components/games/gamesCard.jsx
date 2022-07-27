@@ -3,13 +3,15 @@ import { Link } from "react-router-dom"
 import completedIcon from "../../images/completed_icon.svg"
 import playingIcon from "../../images/playing_icon.svg"
 
-const GamesCard = ({game}) =>{ 
+export const GamesCard = ({game}) =>{ 
+
     let completed = false
     let playing = false
-    if(game.status == "Completed"){
+
+    if(game.status == "Concluído"){
         completed = true
     }
-    if(game.status == "Playing"){
+    if(game.status == "Jogando"){
         playing = true
     }
 
@@ -19,11 +21,12 @@ const GamesCard = ({game}) =>{
                 <Link to={`/game/${game.id}`} className="gameCoverLink"> 
                     {completed ? <img src={completedIcon} alt="Concluído" className="statusIcon"/> : ""}
                     {playing ? <img src={playingIcon} alt="Concluído" className="statusIcon"/> : ""}
-                    <img src={game.verticalCover} alt="gameCover" className="gameCover"/>
+                    <img src={game.verticalCover} alt={game.title} className="gameCover"/>
                 </Link>                
             </li>
         </>
     )
 }
-export default GamesCard
+
+
 

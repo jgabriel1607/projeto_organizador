@@ -1,13 +1,14 @@
-import GamesCard from "./gamesCard";
+import { GamesCard } from "./gamesCard";
 
-const GamesList = ({ games }) => {
+export const GamesList = ({ games }) => {
+  
   return (
     <ul className="gamesList">
-      {games.map((game) => (
+      {games.map((game) => (  
         <GamesCard key={game.id} game={game}/>
-      ))}
+      ))}      
     </ul>
   );
 };
 
-export default GamesList;
+

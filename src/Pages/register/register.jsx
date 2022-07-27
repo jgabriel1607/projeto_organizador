@@ -6,7 +6,7 @@ export const Register = () => {
   return (
     <>
       <main className="main">
-        <h1 className="titleGames"> Cadastro de Jogo</h1>
+        <h1 className="titlePage"> Cadastro de Jogo</h1>
         <section className="content">
         	<form className="registerGame">
 				<div className="registerLeftSide">
@@ -143,7 +143,7 @@ export const Register = () => {
 							</div>
 							<div className="genre">
 								<input type="checkbox" name="rpg" id="rpg"/> 
-								<label htmlFor="rpg"> Role Playin Game (RPG) </label>
+								<label htmlFor="rpg"> Role Playing Game (RPG) </label>
 							</div>
 							<div className="genre">
 								<input type="checkbox" name="simulator" id="simulator"/> 
@@ -239,7 +239,7 @@ export const Register = () => {
 								<label htmlFor="origin"> Origin </label>
 							</div>
 							<div className="platform">
-								<input type="checkbox" name="pc" iPC="pc"/>
+								<input type="checkbox" name="pc" id="pc"/>
 								<label htmlFor="pc"> PC </label>
 							</div>
 							<div className="platform">

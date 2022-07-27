@@ -1,17 +1,37 @@
 import { React, useEffect, useState } from "react"
+import { sortByTitle, sortByReleaseDate, sortByGenre, resetSorting, filterStatus, filterGenre, filterPlatform, searching } from "../../functions/functions"
 
-export const Submenu = ({ games, setGames }) => { 
+export const Submenu = ({ games, setGames}) => {
+    const [unchangedGamesList] = useState([...games])
+    const [searchedItem, setSearchedItem] = useState("")
+    const [filteredStatus, setFilteredStatus] = useState("Nenhum")
+    const [filteredGenre, setFilteredGenre] = useState("Action")
+    const [filteredPlatform, setFilteredPlatform] = useState("Battle.Net")
+
+    useEffect(()=>{
+        let submenu = document.querySelector("#submenu")
+        let sticky = submenu.offsetTop
+        window.onscroll = function fixedSubMenu(){
+            if (window.pageYOffset > sticky) {
+                submenu.classList.remove("submenu")
+                submenu.classList.add("stickySubmenu")
+            } else {
+                submenu.classList.remove("stickySubmenu")
+                submenu.classList.add("submenu")
+            }
+        }        
+    },[])
 
 	return(
 		<>
-			<nav className="submenu">
+			<nav className="submenu" id="submenu">
                 <div className="orderFilter">
                     <div className="orderItems">
-                        <p className="titleSubMenu"> Ordenar: </p>
+                        <p className="titleSubMenu" onClick={() => {console.log(unchangedGamesList)}}> Ordenar: </p>
                         <div className="orderButtons">
-                            <button className="orderButton" id="orderTitle" onClick={() => sortByTitle()}> Título </button>
-                            <button className="orderButton" id="orderReleaseDate"> Data de Lançamento </button>    
-                            <button className="orderButton" id="orderGenre"> Gênero </button>
+                            <button className="orderButton" onClick={() => {sortByTitle(games, setGames)}}> Título </button>
+                            <button className="orderButton" onClick={() => {sortByReleaseDate(games, setGames)}}> Data de Lançamento </button>    
+                            <button className="orderButton" onClick={() => {sortByGenre(games, setGames)}}> Gênero </button>
                         </div>                          
                     </div>
                     <div className="filterItems">
@@ -20,79 +40,79 @@ export const Submenu = ({ games, setGames }) => {
                             <div className="filterStatus filters">  
                                 <label htmlFor="selectStatus" className="selectTitle"> Status: </label>
                                 <div className="selectsButton">
-                                    <select name="selectStatus" id="selectStatus" className="selectOptions">
-                                        <option value="none"> Nenhum </option>
-                                        <option value="playing"> Jogando </option>
-                                        <option value="completed"> Concluídos </option>
+                                    <select name="selectStatus" id="selectStatus" className="selectOptions" onChange={(event) => {setFilteredStatus(event.target.value)}}>
+                                        <option value="Nenhum"> Nenhum </option>
+                                        <option value="Jogando"> Jogando </option>
+                                        <option value="Concluído"> Concluído </option>
                                     </select>
-                                    <button className="applyButton" id="applyStatusButton"> Aplicar </button>
+                                    <button className="applyButton" id="applyStatusButton" onClick={() => {filterStatus(filteredStatus, games, setGames)}}> Aplicar </button>
                                 </div>
                             </div>
                             <div className="filterGenre filters">
                                 <label htmlFor="selectGenre" className="selectTitle"> Gênero: </label>
                                 <div className="selectsButton">
-                                    <select name="selectGenre" id="selectGenre" className="selectOptions">
-                                        <option value="action"> Action </option>
-                                        <option value="adventure"> Adventure </option>
-                                        <option value="arcade"> Arcade </option>
-                                        <option value="beat-em-up"> Beat'em Up </option>
-                                        <option value="card-board"> Card and Boardgame </option>
-                                        <option value="dungeon-crawler"> Dungeon Crawler </option>
-                                        <option value="fighting"> Fighting </option>
-                                        <option value="hack-slash"> Hack and Slash </option>
-                                        <option value="indie"> Indie </option>
-                                        <option value="metroidvania"> Metroidvania </option>
-                                        <option value="music-rhythm"> Music and Rhythm </option>
-                                        <option value="pinball"> Pinball </option>
-                                        <option value="platform"> Platform </option>
-                                        <option value="point-click"> Point and Click </option>
-                                        <option value="puzzle"> Puzzle </option>
-                                        <option value="rts"> Real Time Strategy (RTS) </option>
-                                        <option value="roguelike"> Roguelike </option>
-                                        <option value="rpg"> Role Playin Game (RPG) </option>
-                                        <option value="simulator"> Simulator </option>
-                                        <option value="shooter"> Shooter </option>
-                                        <option value="sport"> Sport </option>
-                                        <option value="strategy"> Strategy </option>
-                                        <option value="tactical"> Tactical </option>
-                                        <option value="turn-based"> Turn Based Strategy (TBS) </option>
-                                        <option value="visual-novel"> Visual Novel </option>
+                                    <select name="selectGenre" id="selectGenre" className="selectOptions" onChange={(event) => {setFilteredGenre(event.target.value)}}>
+                                        <option value="Action"> Action </option>
+                                        <option value="Adventure"> Adventure </option>
+                                        <option value="Arcade"> Arcade </option>
+                                        <option value="Beat'em Up"> Beat'em Up </option>
+                                        <option value="Card and Boardgame"> Card and Boardgame </option>
+                                        <option value="Dungeon Crawler"> Dungeon Crawler </option>
+                                        <option value="Fighting"> Fighting </option>
+                                        <option value="Hack and Slash"> Hack and Slash </option>
+                                        <option value="Indie"> Indie </option>
+                                        <option value="Metroidvania"> Metroidvania </option>
+                                        <option value="Music and Rhythm"> Music and Rhythm </option>
+                                        <option value="Pinball"> Pinball </option>
+                                        <option value="Platform"> Platform </option>
+                                        <option value="Point and Click"> Point and Click </option>
+                                        <option value="Puzzle"> Puzzle </option>
+                                        <option value="Real Time Strategy (RTS)"> Real Time Strategy (RTS) </option>
+                                        <option value="Roguelike"> Roguelike </option>
+                                        <option value="Role Playin Game (RPG)"> Role Playin Game (RPG) </option>
+                                        <option value="Simulator"> Simulator </option>
+                                        <option value="Shooter"> Shooter </option>
+                                        <option value="Sport"> Sport </option>
+                                        <option value="Strategy"> Strategy </option>
+                                        <option value="Tactical"> Tactical </option>
+                                        <option value="Turn Based Strategy (TBS)"> Turn Based Strategy (TBS) </option>
+                                        <option value="Visual Novel"> Visual Novel </option>
                                     </select>
-                                    <button className="applyButton" id="applyGenreButton"> Aplicar </button>
+                                    <button className="applyButton" id="applyGenreButton" onClick={() => {filterGenre(filteredGenre, games, setGames)}}> Aplicar </button>
                                 </div>                                
                             </div>                        
                             <div className="filterPlatform filters">
                                 <label htmlFor="selectPlatform" className="selectTitle"> Plataforma: </label>
                                 <div className="selectsButton">
-                                    <select name="selectPlatform" id="selectPlatform" className="selectOptions">
-                                        <option value="battle-net"> Battle.Net </option>
-                                        <option value="epic"> Epic Games </option>
-                                        <option value="gog"> GOG </option>
-                                        <option value="3ds"> Nintendo 3DS </option>
-                                        <option value="nintendo-64"> Nintendo 64 </option>
-                                        <option value="ds"> Nintendo DS </option>
-                                        <option value="game-boy"> Nintendo Game Boy / Game Boy Color </option>
-                                        <option value="game-boy-advance"> Nintendo Game Boy Advance </option>
-                                        <option value="nes"> Nintendo Entertainment System (NES) </option>
-                                        <option value="gamecube"> Nintendo GameCube </option>
-                                        <option value="snes"> Nintendo Super Entertainment System (SNES) </option>
-                                        <option value="switch"> Nintendo Switch </option>
-                                        <option value="wii"> Nintendo Wii </option>
-                                        <option value="wii-u"> Nintendo Wii U </option>
-                                        <option value="origin"> Origin </option>
-                                        <option value="pc"> PC </option>
-                                        <option value="sega-cd"> Sega CD </option>
-                                        <option value="dreamcast"> Sega Dreamcast </option>
-                                        <option value="genesis"> Sega Genesis (Mega Drive) </option>
-                                        <option value="sega-saturn"> Sega Saturn </option>
-                                        <option value="ps1"> Sony Playstation One </option>
-                                        <option value="ps2"> Sony Playstation 2 </option>
-                                        <option value="ps3"> Sony Playstation 3 </option>
-                                        <option value="steam"> Steam </option>
-                                        <option value="u-play"> UPlay </option>
+                                    <select name="selectPlatform" id="selectPlatform" className="selectOptions" onChange={(event) => {setFilteredPlatform(event.target.value)}}>
+                                        <option value="Battle.Net"> Battle.Net </option>
+                                        <option value="Epic Games"> Epic Games </option>
+                                        <option value="GOG"> GOG </option>
+                                        <option value="Nintendo 3DS"> Nintendo 3DS </option>
+                                        <option value="Nintendo 64"> Nintendo 64 </option>
+                                        <option value="Nintendo DS"> Nintendo DS </option>
+                                        <option value="Nintendo Game Boy / Game Boy Color"> Nintendo Game Boy / Game Boy Color </option>
+                                        <option value="Nintendo Game Boy Advance"> Nintendo Game Boy Advance </option>
+                                        <option value="Nintendo Entertainment System (NES)"> Nintendo Entertainment System (NES) </option>
+                                        <option value="Nintendo GameCube"> Nintendo GameCube </option>
+                                        <option value="Nintendo Super Entertainment System (SNES)"> Nintendo Super Entertainment System (SNES) </option>
+                                        <option value="Nintendo Switch"> Nintendo Switch </option>
+                                        <option value="Nintendo Wii"> Nintendo Wii </option>
+                                        <option value="Nintendo Wii U"> Nintendo Wii U </option>
+                                        <option value="Origin"> Origin </option>
+                                        <option value="PC"> PC </option>
+                                        <option value="Sega CD"> Sega CD </option>
+                                        <option value="Sega Dreamcast"> Sega Dreamcast </option>
+                                        <option value="Sega Genesis (Mega Drive)"> Sega Genesis (Mega Drive) </option>
+                                        <option value="Sega Saturn"> Sega Saturn </option>
+                                        <option value="Sony Playstation One"> Sony Playstation One </option>
+                                        <option value="Sony Playstation 2"> Sony Playstation 2 </option>
+                                        <option value="Sony Playstation 3"> Sony Playstation 3 </option>
+                                        <option value="Steam"> Steam </option>
+                                        <option value="UPlay"> UPlay </option>
                                     </select>
-                                    <button className="applyButton" id="applyPlatformButton"> Aplicar </button>   
-                                    <button className="clearButton" id="clearButton"> Limpar Filtros </button>
+                                    <button className="applyButton" id="applyPlatformButton" onClick={() => {filterPlatform(filteredPlatform, games, setGames)}}> Aplicar </button>   
+                                    <button className="clearButton" id="clearButton"  onClick={() => {resetSorting(unchangedGamesList, games, setGames)}}> Limpar Filtros </button>
                                 </div>                             
                             </div>  
                             
@@ -102,10 +122,9 @@ export const Submenu = ({ games, setGames }) => {
                 <div className="search">
                     <p className="titleSubMenu"> Busca: </p>
                     <div className="searchItems">
-                        <input type="text" name="searchInput" id="searchInput" className="searchInput" placeholder="Pesquisar..."/>
-                        <button className="searchButton" id="searchButton"> Pesquisar </button>
-                    </div>
-                    
+                        <input type="text" name="searchInput" className="searchInput" placeholder="Pesquisar..." onChange={(event) => {setSearchedItem(event.target.value)}} onKeyUp={(event) => {if(event.key === 'Enter' ){searching(searchedItem, games, setGames)}}}/>
+                        <button className="searchButton" onClick={() => {searching(searchedItem, games, setGames)}} > Pesquisar </button>
+                    </div>                    
                 </div>
 			</nav>
 		</>

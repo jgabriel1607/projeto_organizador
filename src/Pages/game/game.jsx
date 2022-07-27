@@ -2,35 +2,31 @@
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-export const Game = ({ games, setGames }) => {
-  const param = useParams();
-  const [gameId, setGameId] = useState(param.gameId - 1);
-  const [gameTitle, setGameTitle] = useState();
-  const [gameSummary, setGameSummary] = useState("");
-  const [gameStatus, setGameStatus] = useState("");
-  const [gameGenre, setGameGenre] = useState("");
-  const [gameReleaseDate, setGameReleaseDate] = useState("");
-  const [gamePlatformList, setGamePlatformList] = useState("");
-  const [gameDevelopers, setGameDevelopers] = useState("");
-  const [gamePublishers, setGamePublishers] = useState("");
-  const [gameBackgroundImage, setGameBackgroundImage] = useState();
-  const [gameSquareIcon, setGameSquareIcon] = useState("");
-  const [gameVerticalCover, setGameVerticalCover] = useState("");
+export const Game = ({games}) => {
+  const param = useParams().gameId
 
-  useEffect(() => {
-    setGameTitle(games[gameId].title);
-    setGameSummary(games[gameId].summary);
-    setGameStatus(games[gameId].status);
-    setGameGenre(games[gameId].genres);
-    setGameReleaseDate(games[gameId].releaseDate);
-    setGamePlatformList(games[gameId].platformList);
-    setGameDevelopers(games[gameId].developers);
-    setGamePublishers(games[gameId].publishers);
-    setGameBackgroundImage(games[gameId].backgroundImage);
-    setGameSquareIcon(games[gameId].squareIcon);
-    setGameVerticalCover(games[gameId].verticalCover);
-  }, []);
+  const game = games.filter((gameInfo) => {
+    if(param == gameInfo.id){
+      return gameInfo
+    }
+  })
+  
+  const dateFormat = new Intl.DateTimeFormat('pt-BR')
+  const convertingDateFormat = dateFormat.format(new Date(game[0].releaseDate))
 
+  const [gameId, setGameId] = useState(game[0].id);
+  const [gameTitle, setGameTitle] = useState(game[0].title);
+  const [gameSummary, setGameSummary] = useState(game[0].summary);
+  const [gameStatus, setGameStatus] = useState(game[0].status);
+  const [gameGenre, setGameGenre] = useState(game[0].genres.join(', '));
+  const [gameReleaseDate, setGameReleaseDate] = useState(convertingDateFormat);
+  const [gamePlatformList, setGamePlatformList] = useState(game[0].platformList.join(', '));
+  const [gameDevelopers, setGameDevelopers] = useState(game[0].developers.join('; '));
+  const [gamePublishers, setGamePublishers] = useState(game[0].publishers.join('; '));
+  const [gameBackgroundImage, setGameBackgroundImage] = useState(game[0].backgroundImage);
+  const [gameSquareIcon, setGameSquareIcon] = useState(game[0].squareIcon);
+  const [gameVerticalCover, setGameVerticalCover] = useState(game[0].verticalCover);
+  
   return (
     <>
       <main className="main">
@@ -61,7 +57,7 @@ export const Game = ({ games, setGames }) => {
                 <p className="infoItemP"> {gameDevelopers} </p>
               </div>
               <div className="infoItem">
-                <h2 className="infoItemTitle"> Publicadoras: </h2>
+                <h2 className="infoItemTitle"> Distribuidoras: </h2>
                 <p className="infoItemP"> {gamePublishers} </p>
               </div>
               <div className="infoItem">
@@ -84,5 +80,5 @@ export const Game = ({ games, setGames }) => {
         </section>
       </main>
     </>
-  );
-};
+  )
+}

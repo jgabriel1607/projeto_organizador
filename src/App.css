@@ -49,14 +49,29 @@ body a{
 /* Submenu */
 
 .submenu{
-  width: 99%;
+  width: 100%;
   height: 80px;
   background-color: #494949;
   margin: auto auto 20px auto;
-  padding: 0.3%;
+  padding: 0.5% 0.1%;
   display: flex;
   justify-content: space-between;
-  box-shadow: 0px 4px 0px #c73030;  
+  box-shadow: 0px 4px 0px #c73030; 
+}
+
+.stickySubmenu {
+  width: 96%;
+  height: 80px;
+  background-color: #494949;
+  margin: auto auto 20px auto;
+  padding: 0.5% 0.1%;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0px 4px 0px #c73030; 
+  position: fixed;
+  top: 54px;
+  left: auto;
+  z-index: 2;
 }
 
 .titleSubMenu{
@@ -205,11 +220,12 @@ body a{
   flex-direction: column;
 }
 
-.titleGames{
+.titlePage{
   margin: 20px 5px 30px;
   font-size: 30px;
   font-weight: bold;
   color: white;
+  position: relative;
 }
 
 .gamesList{

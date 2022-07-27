@@ -5,13 +5,16 @@ import { Register } from "../pages/register/register"
 import { Game } from "../pages/game/game"
 
 export const Rotas = () =>{
-
-	const [games, setGames] = useState([])
+	const [games, setGames] = useState([])	
+    const [unchangedGamesList, setUnchangedGamesList] = useState([])
 
 	useEffect(() => {
 		fetch("http://localhost:3333/games")
 		.then((res) => res.json())
-		.then((data) => setGames(data))
+		.then((data) => {
+			setGames(data)
+			setUnchangedGamesList(data)
+		})
 		.catch((err) => console.log(err))
   	}, [])
 
@@ -19,7 +22,7 @@ export const Rotas = () =>{
 		<>
 			<Switch>
 				<Route exact path={"/"}>
-					<Home games={games} setGames={setGames} />
+					<Home games={games} setGames={setGames} unchangedGamesList={unchangedGamesList}/>
 				</Route>
 				<Route exact path={"/register"}>
 					<Register/>

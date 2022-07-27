@@ -5,8 +5,9 @@
 ✔ Register Game Page (HTML) @done(22-07-18 11:16)
 ✔ Busca e Filtros (HTML) @done(22-07-20 13:18)
 ✔ Busca e Filtros (React) @done(22-07-27 15:46)
-☐ Re-Renderizar Lista Após Filtros
+✔ Re-Renderizar Lista Após Filtros @done(22-07-27 15:53)
 ☐ Add game 
 ☐ Edit game
 ☐ Remove game
+☐ Mobile First
 ☐ Other Types of Items, like Movies, Animes, Cartoons, Books... 

@@ -16,15 +16,15 @@ export const Register = () => {
 					</div>
 					<div className="registerItem">
 						<label htmlFor="summaryGame" className="labelTitle"> Resumo: </label>
-						<textarea name="summaryGame" id="summaryGame" className="areaInput" placeholder="Sinopse do Jogo"></textarea>
+						<textarea name="summaryGame" id="summaryGame" className="areaInput" placeholder="Resumo do Jogo"></textarea>
 					</div>
 					<div className="registerItem">
 						<label htmlFor="developers" className="labelTitle"> Desenvolvedoras: </label>
 						<input type="text" name="developers" id="developers"  className="textInputs" placeholder="Desenvolvedoras"/>
 					</div>
 					<div className="registerItem">
-						<label htmlFor="publishers" className="labelTitle"> Publicadoras: </label>
-						<input type="text" name="publishers" id="publishers"  className="textInputs" placeholder="Publicadoras"/>
+						<label htmlFor="publishers" className="labelTitle"> Distribuidoras: </label>
+						<input type="text" name="publishers" id="publishers"  className="textInputs" placeholder="Distribuidoras"/>
 					</div>
 					<div className="registerItem">
 						<label htmlFor="release-date" className="labelTitle"> Data de Lançamento: </label>

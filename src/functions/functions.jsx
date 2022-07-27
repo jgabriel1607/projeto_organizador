@@ -1,6 +1,10 @@
-/* backgroundImage, developers, genres, id, platformList, publishers, releaseDate, squareIcon, status, summary, title,verticalCover */
-export function sortByTitle(games, setGames){
-    let result = [...games.sort((a, b) => {
+/* backgroundImage, developers, genres, id, platformList, publishers, releaseDate, squareIcon, status, summary, title, verticalCover */
+export function sortByTitle(unchangedGamesList, games, setGames){
+    let temporaryArray = []
+    games.map((game) => {
+        temporaryArray.push(game)
+    })
+    let result = [...temporaryArray.sort((a, b) => {
         if (a.title < b.title){
             return -1;
         }
@@ -10,11 +14,14 @@ export function sortByTitle(games, setGames){
         return 0;
     })]
     setGames(result)
-    console.log(games)
 }
 
-export function sortByReleaseDate(games, setGames){  
-    let result = [...games.sort((a, b) => {
+export function sortByReleaseDate(unchangedGamesList, games, setGames){
+    let temporaryArray = []
+    games.map((game) => {
+        temporaryArray.push(game)
+    })
+    let result = [...temporaryArray.sort((a, b) => {
         if (a.releaseDate < b.releaseDate){
             return -1;
         }
@@ -23,43 +30,38 @@ export function sortByReleaseDate(games, setGames){
         }
         return 0;
     })]
-    console.log(result)
     setGames(result)
-    console.log(games)
 }
 
-export function sortByGenre(games, setGames){
-    let result = [...games.sort((a, b) => {
-        if (a.genre < b.genre){
+export function sortByGenre(unchangedGamesList, games, setGames){
+    let temporaryArray = []
+    games.map((game) => {
+        temporaryArray.push(game)
+    })
+    let result = [...temporaryArray.sort((a, b) => {
+        if (a.genres < b.genres){
             return -1;
         }
-        if (a.genre > b.genre){
+        if (a.genres > b.genres){
             return 1;
         }
         return 0;
     })]
     setGames(result)
-    console.log(games)
 }
 
-export function resetSorting(unchangedGamesList, games, setGames){
-    setGames(unchangedGamesList)
-    return games
-}
-
-export function filterStatus(filteredStatus, games, setGames){    
-    let result = games.filter((game) => {
+export function filterStatus(filteredStatus, unchangedGamesList, games, setGames){    
+    let result = unchangedGamesList.filter((game) => {
         if(filteredStatus == game.status){
             return game
         }     
     })
     setGames(result)
-    console.log(games)
 }
 
-export function filterGenre(filteredGenre, games, setGames){
+export function filterGenre(filteredGenre, unchangedGamesList, games, setGames){
     let result = []
-    games.map((game) => {             
+    unchangedGamesList.map((game) => {             
         game.genres.filter((genre)=>{
             if(genre.toLowerCase() == filteredGenre.toLowerCase()){  
                 result.push(game)
@@ -67,12 +69,11 @@ export function filterGenre(filteredGenre, games, setGames){
         })
     })
     setGames(result)
-    console.log(games)   
 }
 
-export function filterPlatform(filteredPlatform, games, setGames){
+export function filterPlatform(filteredPlatform, unchangedGamesList, games, setGames){
     let result = []
-    games.map((game) => {             
+    unchangedGamesList.map((game) => {             
         game.platformList.filter((platform)=>{
             if(platform.toLowerCase() == filteredPlatform.toLowerCase()){  
                 result.push(game)
@@ -80,12 +81,11 @@ export function filterPlatform(filteredPlatform, games, setGames){
         })
     })
     setGames(result)
-    console.log(games) 
 }
 
-export function searching(searchedItem, games, setGames){
+export function searching(searchedItem, unchangedGamesList, games, setGames){
     let result = []
-    games.map((game) => {    
+    unchangedGamesList.map((game) => {    
         let gameTitle = game.title.split(" ")         
         gameTitle.filter((title)=>{
             if(title.toLowerCase() == searchedItem.toLowerCase()){  
@@ -94,10 +94,8 @@ export function searching(searchedItem, games, setGames){
         })
     })
     setGames(result)
-    console.log(games) 
 }
 
-/* export function consoleInfo(game){
-    console.log(game)
-    console.log(game.id + " - " + game.title + " - " + game.status + " - " + game.releaseDate)
-} */
+export function resetSorting(unchangedGamesList, games, setGames){ 
+    setGames(unchangedGamesList)
+}

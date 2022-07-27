@@ -1,14 +1,13 @@
 import { React, useEffect, useState } from "react"
 import { sortByTitle, sortByReleaseDate, sortByGenre, resetSorting, filterStatus, filterGenre, filterPlatform, searching } from "../../functions/functions"
 
-export const Submenu = ({ games, setGames}) => {
-    const [unchangedGamesList] = useState([...games])
+export const Submenu = ({ games, setGames, unchangedGamesList}) => {
     const [searchedItem, setSearchedItem] = useState("")
     const [filteredStatus, setFilteredStatus] = useState("Nenhum")
     const [filteredGenre, setFilteredGenre] = useState("Action")
     const [filteredPlatform, setFilteredPlatform] = useState("Battle.Net")
 
-    useEffect(()=>{
+    useEffect(()=>{        
         let submenu = document.querySelector("#submenu")
         let sticky = submenu.offsetTop
         window.onscroll = function fixedSubMenu(){
@@ -27,11 +26,11 @@ export const Submenu = ({ games, setGames}) => {
 			<nav className="submenu" id="submenu">
                 <div className="orderFilter">
                     <div className="orderItems">
-                        <p className="titleSubMenu" onClick={() => {console.log(unchangedGamesList)}}> Ordenar: </p>
+                        <p className="titleSubMenu"> Ordenar: </p>
                         <div className="orderButtons">
-                            <button className="orderButton" onClick={() => {sortByTitle(games, setGames)}}> Título </button>
-                            <button className="orderButton" onClick={() => {sortByReleaseDate(games, setGames)}}> Data de Lançamento </button>    
-                            <button className="orderButton" onClick={() => {sortByGenre(games, setGames)}}> Gênero </button>
+                            <button className="orderButton" onClick={() => {sortByTitle(unchangedGamesList, games, setGames)}}> Título </button>
+                            <button className="orderButton" onClick={() => {sortByReleaseDate(unchangedGamesList, games, setGames)}}> Data de Lançamento </button>    
+                            <button className="orderButton" onClick={() => {sortByGenre(unchangedGamesList, games, setGames)}}> Gênero </button>
                         </div>                          
                     </div>
                     <div className="filterItems">
@@ -45,7 +44,7 @@ export const Submenu = ({ games, setGames}) => {
                                         <option value="Jogando"> Jogando </option>
                                         <option value="Concluído"> Concluído </option>
                                     </select>
-                                    <button className="applyButton" id="applyStatusButton" onClick={() => {filterStatus(filteredStatus, games, setGames)}}> Aplicar </button>
+                                    <button className="applyButton" id="applyStatusButton" onClick={() => {filterStatus(filteredStatus, unchangedGamesList, games, setGames)}}> Aplicar </button>
                                 </div>
                             </div>
                             <div className="filterGenre filters">
@@ -78,7 +77,7 @@ export const Submenu = ({ games, setGames}) => {
                                         <option value="Turn Based Strategy (TBS)"> Turn Based Strategy (TBS) </option>
                                         <option value="Visual Novel"> Visual Novel </option>
                                     </select>
-                                    <button className="applyButton" id="applyGenreButton" onClick={() => {filterGenre(filteredGenre, games, setGames)}}> Aplicar </button>
+                                    <button className="applyButton" id="applyGenreButton" onClick={() => {filterGenre(filteredGenre, unchangedGamesList, games, setGames)}}> Aplicar </button>
                                 </div>                                
                             </div>                        
                             <div className="filterPlatform filters">
@@ -111,7 +110,7 @@ export const Submenu = ({ games, setGames}) => {
                                         <option value="Steam"> Steam </option>
                                         <option value="UPlay"> UPlay </option>
                                     </select>
-                                    <button className="applyButton" id="applyPlatformButton" onClick={() => {filterPlatform(filteredPlatform, games, setGames)}}> Aplicar </button>   
+                                    <button className="applyButton" id="applyPlatformButton" onClick={() => {filterPlatform(filteredPlatform, unchangedGamesList, games, setGames)}}> Aplicar </button>   
                                     <button className="clearButton" id="clearButton"  onClick={() => {resetSorting(unchangedGamesList, games, setGames)}}> Limpar Filtros </button>
                                 </div>                             
                             </div>  
@@ -122,8 +121,8 @@ export const Submenu = ({ games, setGames}) => {
                 <div className="search">
                     <p className="titleSubMenu"> Busca: </p>
                     <div className="searchItems">
-                        <input type="text" name="searchInput" className="searchInput" placeholder="Pesquisar..." onChange={(event) => {setSearchedItem(event.target.value)}} onKeyUp={(event) => {if(event.key === 'Enter' ){searching(searchedItem, games, setGames)}}}/>
-                        <button className="searchButton" onClick={() => {searching(searchedItem, games, setGames)}} > Pesquisar </button>
+                        <input type="text" name="searchInput" className="searchInput" placeholder="Pesquisar..." onChange={(event) => {setSearchedItem(event.target.value)}} onKeyUp={(event) => {if(event.key === 'Enter' ){searching(searchedItem, unchangedGamesList, games, setGames)}}}/>
+                        <button className="searchButton" onClick={() => {searching(searchedItem, unchangedGamesList, games, setGames)}} > Pesquisar </button>
                     </div>                    
                 </div>
 			</nav>

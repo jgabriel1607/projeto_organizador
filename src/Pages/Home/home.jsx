@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react";
 import { Submenu } from "../../components/submenu/submenu";
-import {GamesList} from "../../components/games/gamesList"
+import { GamesList } from "../../components/games/gamesList"
+import { TopButton } from "../../components/topButton/topButton";
 
 export const Home = ({games, setGames, unchangedGamesList}) => {
 
   return (
     <>
       <main className="main">
-        <h1 className="titlePage"> Meus Jogos </h1>
+        <h1 className="titlePage"> Biblioteca de Jogos </h1>
         <Submenu games={games} setGames={setGames} unchangedGamesList={unchangedGamesList}/>   
-        <GamesList games={games}/> 
+        <GamesList games={games}/>         
+        <TopButton/>
       </main>
     </>
   );

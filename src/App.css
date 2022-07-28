@@ -17,6 +17,26 @@ body a{
   height: 100%;
 }
 
+/* topButton */
+
+.backToTop{
+  width: 80px;
+  background: none;
+  display: flex;
+  border: none;
+  position: fixed;
+  z-index: 2;
+  bottom: 10px;
+  right: 10px;
+  cursor: pointer;
+  display: none;
+}
+
+.backToTop img{
+  width: 100%;
+  margin: auto;
+}
+
 /* Menu */
 
 .menu{
@@ -110,6 +130,7 @@ body a{
   border: none;
   border-radius: 5px;
   font-family: "Century Gothic";
+  cursor: pointer;
 }
 
 .filterItems{
@@ -159,6 +180,7 @@ body a{
   border: none;
   border-radius: 5px;
   font-family: "Century Gothic";
+  cursor: pointer;
 }
 
 .clearButton{
@@ -167,6 +189,7 @@ body a{
   border: none;
   border-radius: 5px;
   font-family: "Century Gothic";
+  cursor: pointer;
 }
 
 .search{
@@ -206,6 +229,7 @@ body a{
   border: none;
   border-radius: 5px;
   font-family: "Century Gothic";
+  cursor: pointer;
 }
 
 
@@ -356,10 +380,13 @@ body a{
   justify-content: flex-end;
 }
 
-.infoLinks a{
+.infoLinks button{
   color: #c73030;
   margin: 0px 15px;
   font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 /* Register */

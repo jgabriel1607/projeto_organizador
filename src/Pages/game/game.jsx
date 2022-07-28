@@ -1,16 +1,24 @@
 /* backgroundImage, developers, genres, id, platformList, publishers, releaseDate, squareIcon, status, summary, title, verticalCover */
-import { Link, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { Link, useParams, useHistory} from "react-router-dom";
+import { useState } from "react";
+import { removeGame } from "../../functions/functions";
 
-export const Game = ({games}) => {
-  const param = useParams().gameId
+export const Game = ({games, setGames, unchangedGamesList}) => {
+  const param = useParams().gameId  
+  const history = useHistory()
 
   const game = games.filter((gameInfo) => {
     if(param == gameInfo.id){
       return gameInfo
     }
   })
-  
+
+  const handleClick = () =>{
+    removeGame(unchangedGamesList, games, setGames, gameId)
+    history.push("/")
+    history.go(0)
+  }
+
   const dateFormat = new Intl.DateTimeFormat('pt-BR')
   const convertingDateFormat = dateFormat.format(new Date(game[0].releaseDate))
 
@@ -70,8 +78,8 @@ export const Game = ({games}) => {
               </div>
             </div>
             <div className="infoLinks">
-              <a href="#"> Editar </a>
-              <a href="#"> Excluir </a>
+              <button> Editar </button>
+              <button onClick={() => {handleClick()}}> Excluir </button>
             </div>
           </section>
         </section>

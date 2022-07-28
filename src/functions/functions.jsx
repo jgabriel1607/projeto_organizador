@@ -1,5 +1,10 @@
+import { api } from "../services/Api/apiConfig"
 /* backgroundImage, developers, genres, id, platformList, publishers, releaseDate, squareIcon, status, summary, title, verticalCover */
-export function sortByTitle(unchangedGamesList, games, setGames){
+
+// Funções de Filtros
+
+// Ordenar por Título
+export function sortByTitle(games, setGames){
     let temporaryArray = []
     games.map((game) => {
         temporaryArray.push(game)
@@ -16,7 +21,8 @@ export function sortByTitle(unchangedGamesList, games, setGames){
     setGames(result)
 }
 
-export function sortByReleaseDate(unchangedGamesList, games, setGames){
+// Ordenar por Data
+export function sortByReleaseDate(games, setGames){
     let temporaryArray = []
     games.map((game) => {
         temporaryArray.push(game)
@@ -33,7 +39,8 @@ export function sortByReleaseDate(unchangedGamesList, games, setGames){
     setGames(result)
 }
 
-export function sortByGenre(unchangedGamesList, games, setGames){
+// Ordenar por Gênero
+export function sortByGenre(games, setGames){
     let temporaryArray = []
     games.map((game) => {
         temporaryArray.push(game)
@@ -50,6 +57,7 @@ export function sortByGenre(unchangedGamesList, games, setGames){
     setGames(result)
 }
 
+// Filtrar por Status
 export function filterStatus(filteredStatus, unchangedGamesList, games, setGames){    
     let result = unchangedGamesList.filter((game) => {
         if(filteredStatus == game.status){
@@ -59,6 +67,7 @@ export function filterStatus(filteredStatus, unchangedGamesList, games, setGames
     setGames(result)
 }
 
+// Filtrar por Gênero
 export function filterGenre(filteredGenre, unchangedGamesList, games, setGames){
     let result = []
     unchangedGamesList.map((game) => {             
@@ -71,6 +80,7 @@ export function filterGenre(filteredGenre, unchangedGamesList, games, setGames){
     setGames(result)
 }
 
+// Filtrar por Plataforma
 export function filterPlatform(filteredPlatform, unchangedGamesList, games, setGames){
     let result = []
     unchangedGamesList.map((game) => {             
@@ -83,6 +93,7 @@ export function filterPlatform(filteredPlatform, unchangedGamesList, games, setG
     setGames(result)
 }
 
+// Busca
 export function searching(searchedItem, unchangedGamesList, games, setGames){
     let result = []
     unchangedGamesList.map((game) => {    
@@ -96,6 +107,50 @@ export function searching(searchedItem, unchangedGamesList, games, setGames){
     setGames(result)
 }
 
+// Resetar Filtros
 export function resetSorting(unchangedGamesList, games, setGames){ 
     setGames(unchangedGamesList)
+}
+
+// Função para Excluir Jogo
+
+export function removeGame(unchangedGamesList, games, setGames, gameId){    
+    api.delete(`/games/${gameId}`)
+}
+
+//Funções de Rolagem da Tela
+
+export function scrollFunctions(){
+    window.onscroll = 
+		function fixedSubMenuAndTopButton(){
+
+			// Fixed SubMenu
+			let submenu = document.querySelector("#submenu")
+        	let sticky = submenu.offsetTop
+
+            if (window.pageYOffset > sticky) {
+                submenu.classList.remove("submenu")
+                submenu.classList.add("stickySubmenu")
+            } 
+			else {
+                submenu.classList.remove("stickySubmenu")
+                submenu.classList.add("submenu")
+            }
+
+			// Show Button on Scroll Down
+			let buttonVar = document.querySelector("#backToTop")
+
+			if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
+				buttonVar.style.display = "block";
+			} 
+			else{
+				buttonVar.style.display = "none";
+			}						
+        } 
+}
+
+// Função Para Voltar ao Topo da Página
+export function topFunction() {    
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
 }

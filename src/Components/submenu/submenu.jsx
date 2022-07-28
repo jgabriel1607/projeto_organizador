@@ -6,21 +6,7 @@ export const Submenu = ({ games, setGames, unchangedGamesList}) => {
     const [filteredStatus, setFilteredStatus] = useState("Nenhum")
     const [filteredGenre, setFilteredGenre] = useState("Action")
     const [filteredPlatform, setFilteredPlatform] = useState("Battle.Net")
-
-    useEffect(()=>{        
-        let submenu = document.querySelector("#submenu")
-        let sticky = submenu.offsetTop
-        window.onscroll = function fixedSubMenu(){
-            if (window.pageYOffset > sticky) {
-                submenu.classList.remove("submenu")
-                submenu.classList.add("stickySubmenu")
-            } else {
-                submenu.classList.remove("stickySubmenu")
-                submenu.classList.add("submenu")
-            }
-        }        
-    },[])
-
+    
 	return(
 		<>
 			<nav className="submenu" id="submenu">
@@ -28,9 +14,9 @@ export const Submenu = ({ games, setGames, unchangedGamesList}) => {
                     <div className="orderItems">
                         <p className="titleSubMenu"> Ordenar: </p>
                         <div className="orderButtons">
-                            <button className="orderButton" onClick={() => {sortByTitle(unchangedGamesList, games, setGames)}}> Título </button>
-                            <button className="orderButton" onClick={() => {sortByReleaseDate(unchangedGamesList, games, setGames)}}> Data de Lançamento </button>    
-                            <button className="orderButton" onClick={() => {sortByGenre(unchangedGamesList, games, setGames)}}> Gênero </button>
+                            <button className="orderButton" onClick={() => {sortByTitle(games, setGames)}}> Título </button>
+                            <button className="orderButton" onClick={() => {sortByReleaseDate(games, setGames)}}> Data de Lançamento </button>    
+                            <button className="orderButton" onClick={() => {sortByGenre(games, setGames)}}> Gênero </button>
                         </div>                          
                     </div>
                     <div className="filterItems">

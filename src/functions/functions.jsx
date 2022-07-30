@@ -58,17 +58,25 @@ export function sortByGenre(games, setGames){
 }
 
 // Filtrar por Status
-export function filterStatus(filteredStatus, unchangedGamesList, games, setGames){    
+export function filterStatus(filteredStatus, unchangedGamesList, setGames, setNoResult){ 
+    setNoResult(false)   
     let result = unchangedGamesList.filter((game) => {
         if(filteredStatus == game.status){
             return game
         }     
     })
+    if (result <= 0){
+        setNoResult(true)
+    }
+    else{
+        setNoResult(false)
+    }
     setGames(result)
 }
 
 // Filtrar por Gênero
-export function filterGenre(filteredGenre, unchangedGamesList, games, setGames){
+export function filterGenre(filteredGenre, unchangedGamesList, setGames, setNoResult){
+    setNoResult(false)
     let result = []
     unchangedGamesList.map((game) => {             
         game.genres.filter((genre)=>{
@@ -77,11 +85,18 @@ export function filterGenre(filteredGenre, unchangedGamesList, games, setGames){
             }
         })
     })
+    if (result <= 0){
+        setNoResult(true)
+    }
+    else{
+        setNoResult(false)
+    }
     setGames(result)
 }
 
 // Filtrar por Plataforma
-export function filterPlatform(filteredPlatform, unchangedGamesList, games, setGames){
+export function filterPlatform(filteredPlatform, unchangedGamesList, setGames, setNoResult){
+    setNoResult(false)
     let result = []
     unchangedGamesList.map((game) => {             
         game.platformList.filter((platform)=>{
@@ -90,31 +105,46 @@ export function filterPlatform(filteredPlatform, unchangedGamesList, games, setG
             }
         })
     })
+    if (result <= 0){
+        setNoResult(true)
+    }
+    else{
+        setNoResult(false)
+    }
     setGames(result)
 }
 
-// Busca
-export function searching(searchedItem, unchangedGamesList, games, setGames){
+// Busca Instantânea 
+export function instantSearch(event, setSearchedItem, setGames, unchangedGamesList, setNoResult){
+    let searchedItem = event.target.value.toLowerCase()
+    setSearchedItem(searchedItem)
     let result = []
-    unchangedGamesList.map((game) => {    
-        let gameTitle = game.title.split(" ")         
-        gameTitle.filter((title)=>{
-            if(title.toLowerCase() == searchedItem.toLowerCase()){  
-                result.push(game)
-            }
-        })
-    })
-    setGames(result)
+    unchangedGamesList.map((game) => { 
+        let gameTitle = game.title.toLowerCase()   
+        let foundedGame = gameTitle.includes(searchedItem) 
+        if (foundedGame){
+            result.push(game)
+        }   
+    })    
+    setGames(result)  
+
+    if (result <= 0){
+        setNoResult(true)
+    }
+    else{
+        setNoResult(false)
+    } 
 }
 
 // Resetar Filtros
-export function resetSorting(unchangedGamesList, games, setGames){ 
+export function resetSorting(unchangedGamesList, setGames, setNoResult){ 
+    setNoResult(false)
     setGames(unchangedGamesList)
 }
 
 // Função para Excluir Jogo
 
-export function removeGame(unchangedGamesList, games, setGames, gameId){    
+export function removeGame(gameId){    
     api.delete(`/games/${gameId}`)
 }
 

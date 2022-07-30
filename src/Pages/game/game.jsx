@@ -13,8 +13,8 @@ export const Game = ({games, setGames, unchangedGamesList}) => {
     }
   })
 
-  const handleClick = () =>{
-    removeGame(unchangedGamesList, games, setGames, gameId)
+  const handleClickRemoveGame = () =>{
+    removeGame(gameId)
     history.push("/")
     history.go(0)
   }
@@ -79,7 +79,7 @@ export const Game = ({games, setGames, unchangedGamesList}) => {
             </div>
             <div className="infoLinks">
               <button> Editar </button>
-              <button onClick={() => {handleClick()}}> Excluir </button>
+              <button onClick={() => {handleClickRemoveGame()}}> Excluir </button>
             </div>
           </section>
         </section>

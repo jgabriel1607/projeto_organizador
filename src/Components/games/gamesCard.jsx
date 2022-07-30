@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import completedIcon from "../../images/completed_icon.svg"
 import playingIcon from "../../images/playing_icon.svg"
 
-export const GamesCard = ({game}) =>{ 
+export const GamesCard = ({ game }) =>{ 
 
     let completed = false
     let playing = false

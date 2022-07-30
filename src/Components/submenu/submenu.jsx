@@ -1,11 +1,11 @@
 import { React, useEffect, useState } from "react"
-import { sortByTitle, sortByReleaseDate, sortByGenre, resetSorting, filterStatus, filterGenre, filterPlatform, searching } from "../../functions/functions"
+import { sortByTitle, sortByReleaseDate, sortByGenre, resetSorting, filterStatus, filterGenre, filterPlatform, instantSearch } from "../../functions/functions"
 
-export const Submenu = ({ games, setGames, unchangedGamesList}) => {
+export const Submenu = ({ games, setGames, unchangedGamesList, setNoResult }) => {
     const [searchedItem, setSearchedItem] = useState("")
     const [filteredStatus, setFilteredStatus] = useState("Nenhum")
     const [filteredGenre, setFilteredGenre] = useState("Action")
-    const [filteredPlatform, setFilteredPlatform] = useState("Battle.Net")
+    const [filteredPlatform, setFilteredPlatform] = useState("Amazon Games")
     
 	return(
 		<>
@@ -29,8 +29,9 @@ export const Submenu = ({ games, setGames, unchangedGamesList}) => {
                                         <option value="Nenhum"> Nenhum </option>
                                         <option value="Jogando"> Jogando </option>
                                         <option value="Concluído"> Concluído </option>
+                                        <option value="Outro"> Outro </option>
                                     </select>
-                                    <button className="applyButton" id="applyStatusButton" onClick={() => {filterStatus(filteredStatus, unchangedGamesList, games, setGames)}}> Aplicar </button>
+                                    <button className="applyButton" id="applyStatusButton" onClick={() => {filterStatus(filteredStatus, unchangedGamesList, setGames, setNoResult)}}> Aplicar </button>
                                 </div>
                             </div>
                             <div className="filterGenre filters">
@@ -63,13 +64,14 @@ export const Submenu = ({ games, setGames, unchangedGamesList}) => {
                                         <option value="Turn Based Strategy (TBS)"> Turn Based Strategy (TBS) </option>
                                         <option value="Visual Novel"> Visual Novel </option>
                                     </select>
-                                    <button className="applyButton" id="applyGenreButton" onClick={() => {filterGenre(filteredGenre, unchangedGamesList, games, setGames)}}> Aplicar </button>
+                                    <button className="applyButton" id="applyGenreButton" onClick={() => {filterGenre(filteredGenre, unchangedGamesList, setGames, setNoResult)}}> Aplicar </button>
                                 </div>                                
                             </div>                        
                             <div className="filterPlatform filters">
                                 <label htmlFor="selectPlatform" className="selectTitle"> Plataforma: </label>
                                 <div className="selectsButton">
                                     <select name="selectPlatform" id="selectPlatform" className="selectOptions" onChange={(event) => {setFilteredPlatform(event.target.value)}}>
+                                        <option value="Amazon Games"> Amazon Games </option>
                                         <option value="Battle.Net"> Battle.Net </option>
                                         <option value="Epic Games"> Epic Games </option>
                                         <option value="GOG"> GOG </option>
@@ -96,8 +98,8 @@ export const Submenu = ({ games, setGames, unchangedGamesList}) => {
                                         <option value="Steam"> Steam </option>
                                         <option value="UPlay"> UPlay </option>
                                     </select>
-                                    <button className="applyButton" id="applyPlatformButton" onClick={() => {filterPlatform(filteredPlatform, unchangedGamesList, games, setGames)}}> Aplicar </button>   
-                                    <button className="clearButton" id="clearButton"  onClick={() => {resetSorting(unchangedGamesList, games, setGames)}}> Limpar Filtros </button>
+                                    <button className="applyButton" id="applyPlatformButton" onClick={() => {filterPlatform(filteredPlatform, unchangedGamesList, setGames, setNoResult)}}> Aplicar </button>   
+                                    <button className="clearButton" id="clearButton"  onClick={() => {resetSorting(unchangedGamesList, setGames, setNoResult)}}> Limpar Filtros </button>
                                 </div>                             
                             </div>  
                             
@@ -107,8 +109,7 @@ export const Submenu = ({ games, setGames, unchangedGamesList}) => {
                 <div className="search">
                     <p className="titleSubMenu"> Busca: </p>
                     <div className="searchItems">
-                        <input type="text" name="searchInput" className="searchInput" placeholder="Pesquisar..." onChange={(event) => {setSearchedItem(event.target.value)}} onKeyUp={(event) => {if(event.key === 'Enter' ){searching(searchedItem, unchangedGamesList, games, setGames)}}}/>
-                        <button className="searchButton" onClick={() => {searching(searchedItem, unchangedGamesList, games, setGames)}} > Pesquisar </button>
+                        <input type="text" name="searchInput" className="searchInput" placeholder="Pesquisar..." onKeyUp={(event) => instantSearch(event, setSearchedItem, setGames, unchangedGamesList, setNoResult)} />                        
                     </div>                    
                 </div>
 			</nav>

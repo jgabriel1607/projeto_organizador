@@ -179,6 +179,10 @@ export const Register = () => {
 						<label className="labelTitle"> Plataformas: </label>
 						<div className="itemPlatform">
 							<div className="platform">
+								<input type="checkbox" name="amazon-games" id="amazon-games"/> 
+								<label htmlFor="amazon-games"> Amazon Games </label>
+							</div>
+							<div className="platform">
 								<input type="checkbox" name="battle-net" id="battle-net"/> 
 								<label htmlFor="battle-net"> Battle.Net </label>
 							</div>

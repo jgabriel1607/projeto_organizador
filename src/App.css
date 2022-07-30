@@ -210,7 +210,7 @@ body a{
 }
 
 .searchInput{
-  width: 70%;
+  width: 95%;
   height: 40%;
   margin: auto auto 0 auto;
   border: none;
@@ -221,18 +221,6 @@ body a{
 .searchInput:focus{
   outline: 1px solid #c73030;
 }
-
-.searchButton{
-  height: 40%;
-  width: 20%;
-  margin: auto auto 0 auto;
-  border: none;
-  border-radius: 5px;
-  font-family: "Century Gothic";
-  cursor: pointer;
-}
-
-
 
 /* Home */
 
@@ -289,6 +277,12 @@ body a{
 
 .invisible{
   visibility: hidden;
+}
+
+.noResult{
+  font-size: 25px;
+  font-weight: bold;
+  margin: 20px auto;
 }
 
 /* Game */

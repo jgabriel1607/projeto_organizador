@@ -1,4 +1,3 @@
-import { React, useEffect } from "react"
 import topIcon from "../../images/top_icon.svg"
 import { topFunction } from "../../functions/functions"
 

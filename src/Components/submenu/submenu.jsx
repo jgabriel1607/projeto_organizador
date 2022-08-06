@@ -1,7 +1,9 @@
-import { React, useEffect, useState } from "react"
+import { React, useState, useContext } from "react"
+import { GamesContext } from "../../providers/games/games"
 import { sortByTitle, sortByReleaseDate, sortByGenre, resetSorting, filterStatus, filterGenre, filterPlatform, instantSearch } from "../../functions/functions"
 
-export const Submenu = ({ games, setGames, unchangedGamesList, setNoResult }) => {
+export const Submenu = () => {
+    const { games, setGames, unchangedGamesList, setNoResult } = useContext(GamesContext) 
     const [searchedItem, setSearchedItem] = useState("")
     const [filteredStatus, setFilteredStatus] = useState("Nenhum")
     const [filteredGenre, setFilteredGenre] = useState("Action")

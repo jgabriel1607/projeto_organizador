@@ -7,7 +7,7 @@
 ✔ Busca e Filtros (React) @done(22-07-27 15:46)
 ✔ Re-Renderizar Lista Após Filtros @done(22-07-27 15:53)
 ✔ Botão Para Voltar ao Topo @done(22-07-28 13:58)
-☐ Adicionar Redux
+✔ Adicionar Context @done(22-08-06 10:02)
 ✔ Remove game @done(22-07-27 23:03)
 ✔ Refresh Page After Removing Game @done(22-07-28 15:59)
 ✔ Refatorar Função de Pesquisa @done(22-07-30 08:37)
@@ -15,3 +15,10 @@
 ☐ Edit game
 ☐ Mobile First
 ☐ Other Types of Items, like Movies, Animes, Cartoons, Books... 
+
+
+
+
+
+
+

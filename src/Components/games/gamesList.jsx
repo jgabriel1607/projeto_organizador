@@ -1,15 +1,11 @@
-import { GamesCard } from "./gamesCard";
+import {useContext } from "react"
+import { GamesCard } from "./gamesCard"
+import { GamesContext } from "../../providers/games/games"
 
-export const GamesList = ({ games, noResult }) => {
+export const GamesList = () => {
+  const { games, noResult } = useContext(GamesContext) 
 
-  /* const showCard = (game) => {
-    let Card 
-    return Card
-
-  } */
-
-
-  return noResult ? (
+    return noResult ? (
     <ul className="gamesList">
       <h1 className="noResult"> Sem Resultados </h1>    
     </ul>
@@ -22,6 +18,6 @@ export const GamesList = ({ games, noResult }) => {
       }      
     </ul>
   )
-};
+}
 
 

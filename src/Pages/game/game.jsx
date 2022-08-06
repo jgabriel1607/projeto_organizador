@@ -1,9 +1,11 @@
 /* backgroundImage, developers, genres, id, platformList, publishers, releaseDate, squareIcon, status, summary, title, verticalCover */
+import { useState, useContext } from "react";
 import { Link, useParams, useHistory} from "react-router-dom";
-import { useState } from "react";
 import { removeGame } from "../../functions/functions";
+import { GamesContext } from "../../providers/games/games"
 
-export const Game = ({games, setGames, unchangedGamesList}) => {
+export const Game = () => {
+  const { games } = useContext(GamesContext) 
   const param = useParams().gameId  
   const history = useHistory()
 

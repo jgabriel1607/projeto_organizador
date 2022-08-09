@@ -5,7 +5,7 @@ export const TopButton = () =>{
     
     return(
         <>
-            <button className="backToTop" onClick={() => {topFunction()}} id="backToTop"> <img src={topIcon} alt="" /> </button>
+            <a href="#" className="backToTop" id="backToTop"> <img src={topIcon} alt="" /> </a>
         </>
     )
 }

@@ -1,21 +1,23 @@
 ✔ Fetch Api of Games @done(22-07-13 08:50)
-✔ Map of games @done(22-07-13 08:50)
+✔ Map of Games @done(22-07-13 08:50)
 ✔ Routes @done(22-07-13 08:50)
-✔ Page of each game @done(22-07-13 08:50)
+✔ Page of Each Game @done(22-07-13 08:50)
 ✔ Register Game Page (HTML) @done(22-07-18 11:16)
-✔ Busca e Filtros (HTML) @done(22-07-20 13:18)
-✔ Busca e Filtros (React) @done(22-07-27 15:46)
-✔ Re-Renderizar Lista Após Filtros @done(22-07-27 15:53)
-✔ Botão Para Voltar ao Topo @done(22-07-28 13:58)
-✔ Adicionar Context @done(22-08-06 10:02)
-✔ Remove game @done(22-07-27 23:03)
+✔ Search and Filter (HTML) @done(22-07-20 13:18)
+✔ Search and Filter (React) @done(22-07-27 15:46)
+✔ Re-Render Games After Filters @done(22-07-27 15:53)
+✔ Back to Top Button @done(22-07-28 13:58)
+✔ Add Context @done(22-08-06 10:02)
+✔ Remove Game @done(22-07-27 23:03)
 ✔ Refresh Page After Removing Game @done(22-07-28 15:59)
-✔ Refatorar Função de Pesquisa @done(22-07-30 08:37)
+✔ Refact Search Function @done(22-07-30 08:37)
+✔ Apply Grid CSS in Games List @done(22-08-08 16:01)
+✔ Refact Platform and Status Icons Function @done(22-08-09 09:53)
+☐ Refact Menu and SubMenu with Grid CSS 
 ☐ Add game 
 ☐ Edit game
-☐ Mobile First
+☐ Mobile First (Last)
 ☐ Other Types of Items, like Movies, Animes, Cartoons, Books... 
-
 
 
 

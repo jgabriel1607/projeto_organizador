@@ -1,5 +1,21 @@
-import { api } from "../services/Api/apiConfig"
 /* backgroundImage, developers, genres, id, platformList, publishers, releaseDate, squareIcon, status, summary, title, verticalCover */
+import { api } from "../services/Api/apiConfig"
+import completedIcon from "../images/completed_icon.svg"
+import playingIcon from "../images/playing_icon.svg"
+
+import battleIcon from "../images/battle_icon.svg"
+import epicIcon from "../images/epic_icon.svg"
+import gogIcon from "../images/gog_icon.svg"
+import nintendoIcon from "../images/nintendo_icon.svg"
+import originIcon from "../images/origin_icon.svg"
+import playstationIcon from "../images/playstation_icon.svg"
+import primeIcon from "../images/prime_icon.svg"
+import segaIcon from "../images/sega_icon.svg"
+import steamIcon from "../images/steam_icon.svg"
+import uplayIcon from "../images/uplay_icon.svg"
+import xboxIcon from "../images/xbox_icon.svg"
+import windowsIcon from "../images/windows_icon.svg"
+
 
 // Funções de Filtros
 
@@ -151,36 +167,91 @@ export function removeGame(gameId){
 //Funções de Rolagem da Tela
 
 export function scrollFunctions(){
-    window.onscroll = 
-		function fixedSubMenuAndTopButton(){
+    window.onscroll = function fixedSubMenuAndTopButton(){
+        // Fixed SubMenu
+        let submenu = document.querySelector("#submenu")
+        let sticky = submenu.offsetTop
 
-			// Fixed SubMenu
-			let submenu = document.querySelector("#submenu")
-        	let sticky = submenu.offsetTop
-
-            if (window.pageYOffset > sticky) {
-                submenu.classList.remove("submenu")
-                submenu.classList.add("stickySubmenu")
-            } 
-			else {
-                submenu.classList.remove("stickySubmenu")
-                submenu.classList.add("submenu")
-            }
-
-			// Show Button on Scroll Down
-			let buttonVar = document.querySelector("#backToTop")
-
-			if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
-				buttonVar.style.display = "block";
-			} 
-			else{
-				buttonVar.style.display = "none";
-			}						
+        if (window.pageYOffset > sticky) {
+            submenu.classList.remove("submenu")
+            submenu.classList.add("stickySubmenu")
         } 
+        else {
+            submenu.classList.remove("stickySubmenu")
+            submenu.classList.add("submenu")
+        }
+
+        // Show Button on Scroll Down
+        let buttonVar = document.querySelector("#backToTop")
+
+        if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
+            buttonVar.style.display = "block";
+        } 
+        else{
+            buttonVar.style.display = "none";
+        }						
+    } 
 }
 
-// Função Para Voltar ao Topo da Página
-export function topFunction() {    
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
+// Mostrando Status
+export const MostraStatus = (game) => {
+    let icon = ""
+    if (game.status == "Concluído"){
+        icon = completedIcon
+    }
+    if (game.status == "Jogando"){
+        icon = playingIcon
+    }
+   return icon
 }
+
+// Mostrando Plataformas 
+export const MostraPlataforma = (game) => {
+    let icon = ""   
+    if (game.platformList.includes("Steam")){
+        icon = steamIcon
+    } 
+    else if (game.platformList.includes("Battle.Net")){
+        icon = battleIcon
+    } 
+    else if (game.platformList.includes("Epic Games")){
+        icon = epicIcon
+    }   
+    else if (game.platformList.includes("GOG")){
+        icon = gogIcon
+    } 
+    else if (game.platformList.includes("Origin")){
+        icon = originIcon
+    }
+    else if (game.platformList.includes("Prime Gaming")){
+        icon = primeIcon
+    }
+    else if (game.platformList.includes("PC")){
+        icon = windowsIcon
+    }
+    else if (game.platformList.includes("UPlay")){
+        icon = uplayIcon
+    }
+    else {
+        game.platformList.forEach(platform => {
+            if(platform.includes("Nintendo")){
+                icon = nintendoIcon
+            }
+            else if(platform.includes("Playstation")){
+                icon = playingIcon
+            }
+            else if(platform.includes("Sega")){
+                icon = segaIcon
+            }
+            else if(platform.includes("Xbox")){
+                icon = xboxIcon
+            }
+        })
+    }
+    return icon
+}
+
+
+
+
+

@@ -7,7 +7,7 @@ export const Submenu = () => {
     const [searchedItem, setSearchedItem] = useState("")
     const [filteredStatus, setFilteredStatus] = useState("Nenhum")
     const [filteredGenre, setFilteredGenre] = useState("Action")
-    const [filteredPlatform, setFilteredPlatform] = useState("Amazon Games")
+    const [filteredPlatform, setFilteredPlatform] = useState("Battle.Net")
     
 	return(
 		<>
@@ -73,7 +73,6 @@ export const Submenu = () => {
                                 <label htmlFor="selectPlatform" className="selectTitle"> Plataforma: </label>
                                 <div className="selectsButton">
                                     <select name="selectPlatform" id="selectPlatform" className="selectOptions" onChange={(event) => {setFilteredPlatform(event.target.value)}}>
-                                        <option value="Amazon Games"> Amazon Games </option>
                                         <option value="Battle.Net"> Battle.Net </option>
                                         <option value="Epic Games"> Epic Games </option>
                                         <option value="GOG"> GOG </option>
@@ -89,7 +88,8 @@ export const Submenu = () => {
                                         <option value="Nintendo Wii"> Nintendo Wii </option>
                                         <option value="Nintendo Wii U"> Nintendo Wii U </option>
                                         <option value="Origin"> Origin </option>
-                                        <option value="PC"> PC </option>
+                                        <option value="PC"> PC </option>                                        
+                                        <option value="Prime Gaming"> Prime Gaming </option>
                                         <option value="Sega CD"> Sega CD </option>
                                         <option value="Sega Dreamcast"> Sega Dreamcast </option>
                                         <option value="Sega Genesis (Mega Drive)"> Sega Genesis (Mega Drive) </option>
@@ -98,7 +98,10 @@ export const Submenu = () => {
                                         <option value="Sony Playstation 2"> Sony Playstation 2 </option>
                                         <option value="Sony Playstation 3"> Sony Playstation 3 </option>
                                         <option value="Steam"> Steam </option>
-                                        <option value="UPlay"> UPlay </option>
+                                        <option value="UPlay"> UPlay </option>                                        
+                                        <option value="Xbox"> Xbox </option>                                     
+                                        <option value="Xbox 360"> Xbox 360 </option>                                     
+                                        <option value="Xbox One"> Xbox One </option>
                                     </select>
                                     <button className="applyButton" id="applyPlatformButton" onClick={() => {filterPlatform(filteredPlatform, unchangedGamesList, setGames, setNoResult)}}> Aplicar </button>   
                                     <button className="clearButton" id="clearButton"  onClick={() => {resetSorting(unchangedGamesList, setGames, setNoResult)}}> Limpar Filtros </button>

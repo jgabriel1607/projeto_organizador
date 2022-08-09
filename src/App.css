@@ -1,3 +1,7 @@
+html{
+  scroll-behavior: smooth;
+}
+
 body{
   width: 100%;
   height: 100%;
@@ -25,16 +29,21 @@ body a{
   display: flex;
   border: none;
   position: fixed;
-  z-index: 2;
-  bottom: 10px;
-  right: 10px;
+  z-index: 3;
+  bottom: 20px;
+  right: 20px;
   cursor: pointer;
   display: none;
+  transition: all, 500ms;
 }
 
 .backToTop img{
   width: 100%;
   margin: auto;
+}
+
+.backToTop:hover{
+  transform: scale(1.4);
 }
 
 /* Menu */
@@ -51,7 +60,7 @@ body a{
   font-size: 15px;
   font-weight: bold;
   box-shadow: 0px 4px 0px #c73030;
-  z-index: 2;
+  z-index: 3;
 }
 
 .menuLink{
@@ -91,7 +100,7 @@ body a{
   position: fixed;
   top: 54px;
   left: auto;
-  z-index: 2;
+  z-index: 3;
 }
 
 .titleSubMenu{
@@ -244,55 +253,62 @@ body a{
   width: 100%;
   height: max-content;  
   margin: auto auto 20px auto;
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;  
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(8, minmax(200px, 1fr));
 }
 
 .card{
-  width: 12%;
-  margin: 4px;
-  text-align: center;
-  color: white;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  transition: all 400ms;  
+}
+
+.gameCoverLink{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;    
+}
+
+.card:hover{
+  transform: scale(1.1);
+  z-index: 2;
+}
+
+.card:hover .gloss{
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50px 40px, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.192) 70%);
+  position: absolute;
+  z-index: 2;
+  border-radius: -50px;
+}
+
+.iconBackground{ 
+  width: 65%;
+  height: 12%;
+  background-color: #141414;
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  border-radius: 100px 0 0px 10px; 
+}
+
+.icon{
+  height: 80%;
+  margin: auto 2px auto 4px;
 }
 
 .gameCover{  
   width: 100%;
   height: auto;
   margin: auto;
-}
-
-.gameCoverLink{
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-}
-
-.gameCoverLink:hover{
-  outline: solid 2px #c73030;
-}
-
-.statusIconBackground{ 
-  min-width: 4.5%;
-  height: 3.5%;
-  background-color: #141414;
-  margin: auto;
-  padding: 0.05%;
-  display: flex;
-  position: absolute;
-  justify-content: flex-end;
-  border-radius: 100px 0 0px 10px;
-}
-
-.icon{
-  height: 75%;
-  margin: auto 0;
-}
-
-.statusIcon{
-  width: 100%;
-  height: 100%;
-  margin: auto;
+  border-radius: 2%;
+  position: block;
 }
 
 .invisible{

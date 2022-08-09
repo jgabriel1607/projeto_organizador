@@ -177,11 +177,7 @@ export const Register = () => {
 					</div>
 					<div className="registerItem">
 						<label className="labelTitle"> Plataformas: </label>
-						<div className="itemPlatform">
-							<div className="platform">
-								<input type="checkbox" name="amazon-games" id="amazon-games"/> 
-								<label htmlFor="amazon-games"> Amazon Games </label>
-							</div>
+						<div className="itemPlatform">							
 							<div className="platform">
 								<input type="checkbox" name="battle-net" id="battle-net"/> 
 								<label htmlFor="battle-net"> Battle.Net </label>
@@ -247,6 +243,10 @@ export const Register = () => {
 								<label htmlFor="pc"> PC </label>
 							</div>
 							<div className="platform">
+								<input type="checkbox" name="prime-gaming" id="prime-gaming"/> 
+								<label htmlFor="prime-gaming"> Prime Gaming </label>
+							</div>
+							<div className="platform">
 								<input type="checkbox" name="sega-cd" id="sega-cd"/> 
 								<label htmlFor="sega-cd"> Sega CD </label>
 							</div>
@@ -281,6 +281,18 @@ export const Register = () => {
 							<div className="platform">
 								<input type="checkbox" name="u-play" id="u-play"/> 
 								<label htmlFor="u-play"> UPlay </label>
+							</div>
+							<div className="platform">
+								<input type="checkbox" name="xbox" id="xbox"/> 
+								<label htmlFor="xbox"> Xbox </label>
+							</div>
+							<div className="platform">
+								<input type="checkbox" name="xbox360" id="xbox360"/> 
+								<label htmlFor="xbox360"> Xbox 360</label>
+							</div>
+							<div className="platform">
+								<input type="checkbox" name="xbox-one" id="xbox-one"/> 
+								<label htmlFor="xbox-one"> Xbox One</label>
 							</div>
 						</div>	
 					</div>

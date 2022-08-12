@@ -1,5 +1,5 @@
 import topIcon from "../../images/top_icon.svg"
-import { topFunction } from "../../functions/functions"
+import "../../style/topButton.css"
 
 export const TopButton = () =>{
     

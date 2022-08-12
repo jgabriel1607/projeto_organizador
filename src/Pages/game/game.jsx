@@ -3,6 +3,7 @@ import { useState, useContext } from "react";
 import { Link, useParams, useHistory} from "react-router-dom";
 import { removeGame } from "../../functions/functions";
 import { GamesContext } from "../../providers/games/games"
+import "../../style/game.css"
 
 export const Game = () => {
   const { games } = useContext(GamesContext) 

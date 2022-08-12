@@ -2,7 +2,6 @@
 import { api } from "../services/Api/apiConfig"
 import completedIcon from "../images/completed_icon.svg"
 import playingIcon from "../images/playing_icon.svg"
-
 import battleIcon from "../images/battle_icon.svg"
 import epicIcon from "../images/epic_icon.svg"
 import gogIcon from "../images/gog_icon.svg"
@@ -15,7 +14,8 @@ import steamIcon from "../images/steam_icon.svg"
 import uplayIcon from "../images/uplay_icon.svg"
 import xboxIcon from "../images/xbox_icon.svg"
 import windowsIcon from "../images/windows_icon.svg"
-
+import openIcon from "../images/open_icon.svg"
+import closeIcon from "../images/close_icon.svg"
 
 // Funções de Filtros
 
@@ -154,6 +154,8 @@ export function instantSearch(event, setSearchedItem, setGames, unchangedGamesLi
 
 // Resetar Filtros
 export function resetSorting(unchangedGamesList, setGames, setNoResult){ 
+    let searchInput = document.querySelector(".searchInput")
+    searchInput.value = ""
     setNoResult(false)
     setGames(unchangedGamesList)
 }
@@ -170,9 +172,9 @@ export function scrollFunctions(){
     window.onscroll = function fixedSubMenuAndTopButton(){
         // Fixed SubMenu
         let submenu = document.querySelector("#submenu")
-        let sticky = submenu.offsetTop
+        let stickySubmenu = submenu.offsetTop
 
-        if (window.pageYOffset > sticky) {
+        if (window.pageYOffset > stickySubmenu) {
             submenu.classList.remove("submenu")
             submenu.classList.add("stickySubmenu")
         } 
@@ -181,14 +183,29 @@ export function scrollFunctions(){
             submenu.classList.add("submenu")
         }
 
+
+        // Fixed Search Area
+        let searchArea = document.querySelector("#searchArea")
+        let stickySearchArea = searchArea.offsetTop
+
+        if (window.pageYOffset > stickySearchArea) {
+            searchArea.classList.remove("searchArea")
+            searchArea.classList.add("stickySearchArea")
+        } 
+        else {
+            searchArea.classList.remove("stickySearchArea")
+            searchArea.classList.add("searchArea")
+        }
+
+
         // Show Button on Scroll Down
         let buttonVar = document.querySelector("#backToTop")
 
         if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
-            buttonVar.style.display = "block";
+            buttonVar.classList.add("toggleBackToTop")
         } 
         else{
-            buttonVar.style.display = "none";
+            buttonVar.classList.remove("toggleBackToTop")
         }						
     } 
 }
@@ -238,7 +255,7 @@ export const MostraPlataforma = (game) => {
                 icon = nintendoIcon
             }
             else if(platform.includes("Playstation")){
-                icon = playingIcon
+                icon = playstationIcon
             }
             else if(platform.includes("Sega")){
                 icon = segaIcon
@@ -251,7 +268,43 @@ export const MostraPlataforma = (game) => {
     return icon
 }
 
+// Mostrando Submenu Mobile
+export const MostraSubmenu = (isHidden, setIsHidden) => {
+    let submenu = document.querySelector(".submenu")
+    let stickySubmenu = document.querySelector(".stickySubmenu")
+    if(submenu != null){
+        if(isHidden){
+            submenu.classList.add("showSubmenu") 
+            setIsHidden(false)
+        }
+        else{
+            submenu.classList.remove("showSubmenu")
+            setIsHidden(true)
+        }    
+    }
+    if(stickySubmenu != null){
+        if(isHidden){
+            stickySubmenu.classList.add("showSubmenu")      
+            setIsHidden(false)
+        }
+        else{
+            stickySubmenu.classList.remove("showSubmenu")
+            setIsHidden(true)
+        }    
+    }    
+}
 
+// Mostrando Ícone Submenu
+export const MostraIconeSubmenu = (isHidden) => {
+    let icon = ""
+    if(isHidden){
+        icon = openIcon
+    }
+    else{
+        icon = closeIcon
+    }
+    return icon
+}
 
 
 

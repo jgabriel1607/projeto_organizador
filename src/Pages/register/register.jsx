@@ -1,6 +1,6 @@
 /* backgroundImage, developers, genres, id, platformList, publishers, releaseDate, squareIcon, status, summary, title, verticalCover */
 import React from "react";
-import { Submenu } from "../../components/submenu/submenu";
+import "../../style/register.css"
 
 export const Register = () => {
   return (

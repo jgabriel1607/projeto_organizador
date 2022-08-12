@@ -1,0 +1,97 @@
+/* Game */
+
+.content{
+    width: 85%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.aboutGame{
+    width: 65%;
+    min-height: 600px;
+    height: fit-content;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+.gamesTitle{
+    margin: 10px auto;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+}
+
+.gameBackgroundImage{
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.gameSummary{
+    width: 100%;
+    font-size: 20px;
+    text-align: justify;
+}
+
+.gameSummary p {
+    padding: 15px;
+    line-height: 28px;
+}
+
+.infoGame{
+    width: 35%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.previousPage{
+    width: 85%;
+    height: 50px;
+    margin: auto;
+}
+
+.previousPage a{  
+    color: #c73030;
+    margin: 15px;
+    font-size: 25px;
+    line-height: 50px;
+}
+
+.infomItems{
+    margin: 50px 10px;
+}
+
+.infoItem{
+    margin: 10px;
+    display: flex;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.infoItemTitle{
+    color: #c73030;
+    font-weight: bold;
+    margin: 0 20px;
+}
+
+.infoItemP{
+    line-height: 26px;
+}
+
+.infoLinks{
+    margin: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.infoLinks button{
+    color: #c73030;
+    margin: 0px 15px;
+    font-size: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}

@@ -1,0 +1,188 @@
+/* Home */
+    .main{
+        width: 96%;
+        margin: 70px auto; 
+        color: white;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .titlePage{
+        margin: 20px 5px 30px;
+        font-size: 30px;
+        font-weight: bold;
+        color: white;
+        position: relative;
+    }   
+    
+    .gamesList{
+        width: 100%;
+        height: max-content;  
+        margin: auto auto 20px auto;
+        display: grid;
+        gap: 0.5rem;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    
+    .card{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        transition: all 400ms;  
+    }
+
+    .gameCoverLink{
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;    
+    }
+
+    .card:hover{
+        transform: scale(1.1);
+        z-index: 2;
+    }
+
+    .card:hover .gloss{
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 50px 40px, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.192) 70%);
+        position: absolute;
+        z-index: 2;
+        border-radius: -50px;
+    }
+
+    .titleGameMobile{
+        visibility: hidden;
+    }
+
+    .iconBackground{ 
+        width: 65%;
+        height: 12%;
+        background-color: #141414;
+        display: flex;
+        justify-content: flex-end;
+        position: absolute;
+        border-radius: 100px 0 0px 10px; 
+    }
+
+    .icon{
+        height: 80%;
+        margin: auto 2px auto 4px;
+    }
+
+    .gameCover{  
+        width: 100%;
+        height: auto;
+        margin: auto;
+        border-radius: 2%;
+        position: block;
+    }
+    .noResult{
+        font-size: 25px;
+        font-weight: bold;
+        margin: 20px auto;
+    }
+    
+/* Mobile -------------------------------------------------------------------------------------------------------------------------------- */
+
+
+@media (max-width: 800px){
+  .main{
+    width: 96%;
+    margin: 120px auto; 
+    color: white;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .gamesList{ 
+    width: 100%;
+    height: max-content;  
+    margin: auto auto 20px auto;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card{
+    width: 100%;
+    height: 300px;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    transition: all 400ms;  
+  }
+  
+  .gameCoverLink{
+    padding: 5px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;   
+  }
+  
+  .card:hover{
+    transform: scale(1.05);
+    z-index: 2;
+  }
+  
+  .card:hover .gloss{
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50px 40px, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.192) 70%);
+    position: absolute;
+    z-index: 2;
+    border-radius: 20px;
+  }
+
+  .titleGameMobile{
+    width: 600px;
+    background-color: #24242480;
+    position: absolute;
+    padding: 5px 5px 5px 20px;
+    top: 10px;
+    left: 0px;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 40px;
+    color: white;    
+    visibility: visible;
+  }
+  
+  .iconBackground{ 
+    width: 8%;
+    height: 100%;
+    background-color: #141414;
+    padding: 1% auto;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-end;
+    position: static;
+    border-radius: 0 20px 20px 0; 
+  }
+  
+  .icon{
+    height: fit-content;
+    width: 80%;
+    margin: 5px auto;
+    border: none;
+  } 
+  
+  .gameCover{  
+    width: 98%;
+    height: 300px;
+    margin: auto 10px;
+    position: static; 
+    object-fit: scale-down;
+    background-color: #141414;
+    border-radius: 20px 0 0 20px; 
+  }
+  
+  .noResult{
+    font-size: 25px;
+    font-weight: bold;
+    margin: 20px auto;
+  }
+} 

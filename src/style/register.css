@@ -1,0 +1,119 @@
+/* Register */
+
+.registerGame{
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  color: white;
+  font-family: "Century Gothic";
+}
+
+.registerGame input:focus, .registerGame textarea:focus{
+  outline: solid 1px #c73030;
+}
+.registerLeftSide{
+  height: 96%;
+  width: 45%;
+  margin: 1%;
+}
+
+.registerRightSide{
+  height: 96%;
+  width: 55%;
+  margin: 1%;
+  box-shadow: -3px 0px 0px 0px #c73030;
+}
+
+.registerItem{
+  margin: 20px 15px;
+  padding: 2px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.labelTitle{
+  margin: 0 15px 0 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #c73030;
+}
+
+.textInputs{
+  width: 340px;
+  height: 20px;
+  border-radius: 6px;
+  border: none;  
+  font-family: "Century Gothic";
+}
+
+.areaInput{
+  width: 340px;
+  height: 130px;
+  border-radius: 6px;
+  border: none;
+  resize: none;  
+  font-family: "Century Gothic";
+}
+
+.dataInput{  
+  width: 180px;
+  height: 20px;
+  border-radius: 6px;
+  border: none;
+  font-family: "Century Gothic";
+}
+
+.itemImages{
+  width: 70%;
+  margin: auto 0 auto auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.titleImages{
+  margin: 0 15px 0 0;
+}
+
+.images{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 0 25px 0;
+}
+
+.itemStatus{
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.status{
+  margin: auto;
+}
+
+.itemGenre, .itemPlatform{
+  width: 100%;
+  margin: auto;
+  padding: 2px;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.genre, .platform{
+  margin: 0 0 20px 20px;
+}
+
+.submitInput{
+  width: 80px;
+  height: 30px;
+  margin: auto 0 auto auto;
+  border-radius: 6px;
+  border: none;
+  font-size: 25px;
+  color: #c73030;
+  background: none;
+}

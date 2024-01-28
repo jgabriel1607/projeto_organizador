@@ -95,3 +95,11 @@
     border: none;
     cursor: pointer;
 }
+
+.editSection{
+    width: 500px;
+    height: 600px;
+    background-color: #c73030;
+    margin: 10% 0 0 35%;
+    justify-content: center;
+}

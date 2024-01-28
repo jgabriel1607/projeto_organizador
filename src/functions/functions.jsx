@@ -160,6 +160,12 @@ export function resetSorting(unchangedGamesList, setGames, setNoResult){
     setGames(unchangedGamesList)
 }
 
+// Função para Editar Jogo
+
+export function editGame(gameId){  
+    console.log(gameId)
+}
+
 // Função para Excluir Jogo
 
 export function removeGame(gameId){    
@@ -173,8 +179,7 @@ export function scrollFunctions(){
         // Fixed SubMenu
         let submenu = document.querySelector("#submenu")
         let stickySubmenu = submenu.offsetTop
-
-        if (window.pageYOffset > stickySubmenu) {
+        if (window.scrollY > stickySubmenu) {
             submenu.classList.remove("submenu")
             submenu.classList.add("stickySubmenu")
         } 
@@ -183,12 +188,11 @@ export function scrollFunctions(){
             submenu.classList.add("submenu")
         }
 
-
         // Fixed Search Area
         let searchArea = document.querySelector("#searchArea")
         let stickySearchArea = searchArea.offsetTop
 
-        if (window.pageYOffset > stickySearchArea) {
+        if (window.scrollY > stickySearchArea) {
             searchArea.classList.remove("searchArea")
             searchArea.classList.add("stickySearchArea")
         } 
@@ -240,7 +244,7 @@ export const MostraPlataforma = (game) => {
     else if (game.platformList.includes("Origin")){
         icon = originIcon
     }
-    else if (game.platformList.includes("Prime Gaming")){
+    else if (game.platformList.includes("Amazon")){
         icon = primeIcon
     }
     else if (game.platformList.includes("PC")){

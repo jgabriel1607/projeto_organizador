@@ -10,7 +10,10 @@ export const Submenu = () => {
     const [filteredGenre, setFilteredGenre] = useState("Action")
     const [filteredPlatform, setFilteredPlatform] = useState("Battle.Net")    
     const [isHidden, setIsHidden] = useState(true) 
+    const [submenuOn, setSubmenuON] = useState(false)
+
 	return(		
+
         <>
 			<nav className="submenu" id="submenu"> 
                 <button className="openSubmenu" id="openSubmenu" onClick={() => MostraSubmenu(isHidden, setIsHidden)}> <img src={MostraIconeSubmenu(isHidden)} alt="Toggle Submenu" className="openCloseSubmenu"/> </button>
@@ -32,7 +35,6 @@ export const Submenu = () => {
                             <option value="Nenhum"> Nenhum </option>
                             <option value="Jogando"> Jogando </option>
                             <option value="Concluído"> Concluído </option>
-                            <option value="Outro"> Outro </option>
                         </select>
                         <button className="applyButton" id="applyStatusButton" onClick={() => {filterStatus(filteredStatus, unchangedGamesList, setGames, setNoResult)}}> Aplicar </button>
                     </div>
@@ -44,13 +46,15 @@ export const Submenu = () => {
                             <option value="Adventure"> Adventure </option>
                             <option value="Arcade"> Arcade </option>
                             <option value="Beat'em Up"> Beat'em Up </option>
-                            <option value="Card and Boardgame"> Card and Boardgame </option>
+                            <option value="Card and Boardgame"> Card and Boardgame </option>                            
+                            <option value="Casual"> Casual </option>
                             <option value="Dungeon Crawler"> Dungeon Crawler </option>
                             <option value="Fighting"> Fighting </option>
                             <option value="Hack and Slash"> Hack and Slash </option>
                             <option value="Indie"> Indie </option>
                             <option value="Metroidvania"> Metroidvania </option>
                             <option value="Music and Rhythm"> Music and Rhythm </option>
+                            <option value="Party"> Party </option>
                             <option value="Pinball"> Pinball </option>
                             <option value="Platform"> Platform </option>
                             <option value="Point and Click"> Point and Click </option>
@@ -60,7 +64,7 @@ export const Submenu = () => {
                             <option value="Role Playin Game (RPG)"> Role Playin Game (RPG) </option>
                             <option value="Simulator"> Simulator </option>
                             <option value="Shooter"> Shooter </option>
-                            <option value="Sport"> Sport </option>
+                            <option value="Sports"> Sports </option>
                             <option value="Strategy"> Strategy </option>
                             <option value="Tactical"> Tactical </option>
                             <option value="Turn Based Strategy (TBS)"> Turn Based Strategy (TBS) </option>
@@ -73,7 +77,7 @@ export const Submenu = () => {
                     <div className="selects">
                         <select name="selectPlatform" id="selectPlatform" className="options" onChange={(event) => {setFilteredPlatform(event.target.value)}}>
                             <option value="Battle.Net"> Battle.Net </option>
-                            <option value="Epic Games"> Epic Games </option>
+                            <option value="Epic Games Store"> Epic Games Store </option>
                             <option value="GOG"> GOG </option>
                             <option value="Nintendo 3DS"> Nintendo 3DS </option>
                             <option value="Nintendo 64"> Nintendo 64 </option>

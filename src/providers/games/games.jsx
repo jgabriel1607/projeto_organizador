@@ -12,7 +12,7 @@ export const GamesProvider = ({children}) => {
     async function getGames(){
         const response = await api.get("/games")
         setGames(response.data)
-        setUnchangedGamesList(response.data)    }
+        setUnchangedGamesList(response.data)}
 
     useEffect(() => {
 		getGames()

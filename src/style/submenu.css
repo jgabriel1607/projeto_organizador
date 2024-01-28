@@ -3,7 +3,7 @@
 .submenu{
     width: 98%;
     height: 80px;
-    background-color: #494949;
+    background-color: #111111;
     margin: auto auto 20px auto;
     padding: 0.4% 1%;
     box-shadow: 0px 4px 0px #c73030; 
@@ -20,7 +20,7 @@
 .stickySubmenu{
     width: 94%;
     height: 80px;
-    background-color: #494949;
+    background-color: #111111;
     margin: auto auto 20px auto;
     padding: 0.4% 1%;
     box-shadow: 0px 4px 0px #c73030; 
@@ -152,7 +152,7 @@
     .submenu{
         width: 40%;
         height: 90%;
-        background-color: #494949;
+        background-color: #111111;
         margin: auto;
         padding: 0 1%;
         box-shadow: -4px 0px 0px #c73030;
@@ -172,7 +172,7 @@
     .stickySubmenu{
         width: 40%;
         height: 90%;
-        background-color: #494949;
+        background-color: #111111;
         margin: auto;
         padding: 0 1%;
         box-shadow: -4px 0px 0px #c73030;

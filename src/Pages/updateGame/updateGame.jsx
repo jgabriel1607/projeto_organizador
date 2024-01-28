@@ -8,42 +8,87 @@ import "../../style/game.css"
 import "../../style/register.css"
 
 
-export const Register = () => {	
+export const UpdateGamePage = () => {
+  
+	const {games, unchangedGamesList} = useContext(GamesContext)  
 	const history = useHistory()
-	const {games, unchangedGamesList} = useContext(GamesContext)
-	const [gameId, setGameId] = useState(games.length);
-	const [gameTitle, setGameTitle] = useState("");
-	const [gameSummary, setGameSummary] = useState("");
-	const [gameStatus, setGameStatus] = useState("Nenhum");	
-	const [gameGenre, setGameGenre] = useState([]);
-	const [gameReleaseDate, setGameReleaseDate] = useState("");
-	const [gamePlatformList, setGamePlatformList] = useState([]);
-	const [gameDevelopers, setGameDevelopers] = useState([]);
-	const [gamePublishers, setGamePublishers] = useState([]);	
-	const [gameBackgroundImage, setGameBackgroundImage] = useState("");
-	const [gameSquareIcon, setGameSquareIcon] = useState("");
-	const [gameVerticalCover, setGameVerticalCover] = useState("");
+	const param = useParams().gameId  
+	const game = games.filter((gameInfo) => {
+		if(param == gameInfo.id){
+		return gameInfo
+		}
+	})
+
+	const dateFormat = new Intl.DateTimeFormat('pt-BR')
+	const convertingDateFormat = dateFormat.format(new Date(game[0].releaseDate))
+
+	const [gameId, setGameId] = useState(game[0].id);
+	const [gameTitle, setGameTitle] = useState(game[0].title);
+	const [gameSummary, setGameSummary] = useState(game[0].summary);
+	const [gameStatus, setGameStatus] = useState(game[0].status);
+	const [gameGenre, setGameGenre] = useState(game[0].genres);
+	const [gameReleaseDate, setGameReleaseDate] = useState(game[0].releaseDate);
+	const [gamePlatformList, setGamePlatformList] = useState(game[0].platformList);
+	const [gameDevelopers, setGameDevelopers] = useState(game[0].developers);
+	const [gamePublishers, setGamePublishers] = useState(game[0].publishers);
+	const [gameBackgroundImage, setGameBackgroundImage] = useState(game[0].backgroundImage);
+	const [gameSquareIcon, setGameSquareIcon] = useState(game[0].squareIcon);
+	const [gameVerticalCover, setGameVerticalCover] = useState(game[0].verticalCover);
+
+	const[originalGameName, setOriginalGameName] = useState(gameTitle)
+	const[newGenres, setNewGenres] = useState(false)
 
 	const handleCheckboxGenre = (event) => {
 		let checkboxValue = event.target.value
 		let checkboxChecked = event.target.checked
+		let result = gameGenre.find((item) => item == checkboxValue)
+
 		if (checkboxChecked){
-			setGameGenre([...gameGenre, checkboxValue])
-		}		
+			if (newGenres == false){
+				setGameGenre([])
+				setGameGenre([checkboxValue])
+				setNewGenres(true)
+			}
+			else{
+				if (result !== checkboxValue){
+					setGameGenre([...gameGenre, checkboxValue])
+				}
+			}
+		}
+		else{
+			let newArray = gameGenre.filter((item) => item !== checkboxValue)
+			setGameGenre(newArray)
+		}
 	}	
 
 	const handleCheckboxPlatform = (event) => {
 		let checkboxValue = event.target.value
 		let checkboxChecked = event.target.checked
+		let result = gamePlatformList.find((item) => item == checkboxValue)
+
 		if (checkboxChecked){
-			setGamePlatformList([...gamePlatformList, checkboxValue])
-		}		
+			if (newGenres == false){
+				setGamePlatformList([])
+				setGamePlatformList([checkboxValue])
+				setNewGenres(true)
+			}
+			else{
+				if (result !== checkboxValue){
+					setGamePlatformList([...gamePlatformList, checkboxValue])
+				}
+			}
+		}
+		else{
+			let newArray = gamePlatformList.filter((item) => item !== checkboxValue)
+			setGamePlatformList(newArray)
+		}	
 	}
 
-	const addNewGame = (e) => {
+	const updateGame = (e) => {
 		e.preventDefault()
+
 		const newGame = {
-			id: games.length,
+			id: gameId,
 			title: gameTitle,
 			summary: gameSummary,
 			platformList: gamePlatformList,
@@ -56,12 +101,10 @@ export const Register = () => {
 			verticalCover: gameVerticalCover,
 			status: gameStatus
 		}
-		
-		api.post('/games', newGame)
-		.then((res) => {console.log(res)})
-		.catch((e) => {console.log(e)})
 
-		alert("Jogo Adicionado com Sucesso!")
+		api.put(`/games/${gameId}`, newGame)
+
+		alert("Jogo Atualizado com Sucesso!")
 
 		history.push("/")	
 		history.go(0)
@@ -70,46 +113,46 @@ export const Register = () => {
 	return (
     <>
       <main className="main">
-        <h1 className="titlePage"> Cadastro de Jogo</h1>
+        <h1 className="titlePage"> Editando: {originalGameName}</h1>
         <section className="content">
-        	<form className="registerGame" onSubmit={addNewGame}>
+        	<form className="registerGame" onSubmit={updateGame}>
 				<div className="registerLeftSide">
 					<div className="registerItem">
 						<label htmlFor="titleGame" className="labelTitle"> Título: </label>
-						<input type="text" name="titleGame" id="titleGame" className="textInputs" placeholder="Título do Jogo" required onChange={() => {setGameTitle(titleGame.value)}}/>
+						<input type="text" name="titleGame" id="titleGame" className="textInputs" placeholder="Título do Jogo" value={gameTitle} onChange={() => {setGameTitle(titleGame.value)}}/>
 					</div>
 					<div className="registerItem">
 						<label htmlFor="summaryGame" className="labelTitle"> Resumo: </label>
-						<textarea name="summaryGame" id="summaryGame" className="areaInput" placeholder="Resumo do Jogo" required onChange={() => {setGameSummary(summaryGame.value)}}></textarea>
+						<textarea name="summaryGame" id="summaryGame" className="areaInput" placeholder="Resumo do Jogo" value={gameSummary} onChange={() => {setGameSummary(summaryGame.value)}}></textarea>
 					</div>					
 					<div className="registerItem">
 						<label htmlFor="developers" className="labelTitle"> Desenvolvedoras: </label>
-						<input type="text" name="developers" id="developers"  className="textInputs" placeholder="Desenvolvedoras" required onChange={() => {setGameDevelopers(developers.value.split(','))}}/>
+						<input type="text" name="developers" id="developers"  className="textInputs" placeholder="Desenvolvedoras" value={gameDevelopers} onChange={() => {setGameDevelopers(developers.value.split(','))}}/>
 					</div>					
 					<p className="observacaoInfo"> *Caso tenha mais de 1 item, separar por ",". </p>
 					<div className="registerItem">
 						<label htmlFor="publishers" className="labelTitle"> Distribuidoras: </label>
-						<input type="text" name="publishers" id="publishers"  className="textInputs" placeholder="Distribuidoras" required onChange={() => {setGamePublishers(publishers.value.split(','))}}/>
+						<input type="text" name="publishers" id="publishers"  className="textInputs" placeholder="Distribuidoras" value={gamePublishers} onChange={() => {setGamePublishers(publishers.value.split(','))}}/>
 					</div>					
 					<p className="observacaoInfo"> *Caso tenha mais de 1 item, separar por ",". </p>
 					<div className="registerItem">
 						<label htmlFor="releaseDate" className="labelTitle"> Data de Lançamento: </label>
-						<input type="date" name="releaseDate" id="releaseDate"  className="dataInput" required onChange={() => {setGameReleaseDate(releaseDate.value)}}/>
+						<input type="date" name="releaseDate" id="releaseDate"  className="dataInput" defaultValue={gameReleaseDate} onChange={() => {setGameReleaseDate(releaseDate.value)}}/>
 					</div>
 					<div className="registerItem">
 						<label className="labelTitle"> Imagens: </label>
 						<div className="itemImages">
 						<div className="images">
 							<label htmlFor="verticalImage" className="titleImages"> Imagem de Capa: </label>
-							<input type="url" name="verticalImage" id="verticalImage" className="textInputs" placeholder="URL da Imagem de Capa" required onChange={() => {setGameVerticalCover(verticalImage.value)}}/>
+							<input type="url" name="verticalImage" id="verticalImage" className="textInputs" placeholder="URL da Imagem de Capa" value={gameVerticalCover} onChange={() => {setGameVerticalCover(verticalImage.value)}}/>
 						</div>
 						<div className="images">
 							<label htmlFor="backgroundImage" className="titleImages"> Imagem Horizontal: </label>
-							<input type="url" name="backgroundImage" id="backgroundImage" className="textInputs" placeholder="URL da Imagem de Horizontal" required onChange={() => {setGameBackgroundImage(backgroundImage.value)}}/>
+							<input type="url" name="backgroundImage" id="backgroundImage" className="textInputs" placeholder="URL da Imagem de Horizontal" value={gameBackgroundImage} onChange={() => {setGameBackgroundImage(backgroundImage.value)}}/>
 						</div>
 						<div className="images">
 							<label htmlFor="iconImage" className="titleImages"> Ícone: </label>
-							<input type="url" name="iconImage" id="iconImage" className="textInputs" placeholder="URL da Imagem de Ícone" required onChange={() => {setGameSquareIcon(iconImage.value)}}/>
+							<input type="url" name="iconImage" id="iconImage" className="textInputs" placeholder="URL da Imagem de Ícone" value={gameSquareIcon} onChange={() => {setGameSquareIcon(iconImage.value)}}/>
 						</div>
 						</div>
 					</div>

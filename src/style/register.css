@@ -27,9 +27,10 @@
 
 .registerItem{
   margin: 20px 15px;
-  padding: 2px;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
+  border-bottom: solid 1px #c73030;
 }
 
 .labelTitle{

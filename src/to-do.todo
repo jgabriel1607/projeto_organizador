@@ -1,3 +1,5 @@
+PARA INICIAR O SERVIDOR NO TERMINAL, DIGITE "yarn server"
+PARA CRIAR PROJETO REACT, DIGITE "npm create react-app nome_do_app"
 ✔ Fetch Api of Games @done(22-07-13 08:50)
 ✔ Map of Games @done(22-07-13 08:50)
 ✔ Routes @done(22-07-13 08:50)
@@ -14,12 +16,20 @@
 ✔ Apply Grid CSS in Games List @done(22-08-08 16:01)
 ✔ Refact Platform and Status Icons Function @done(22-08-09 09:53)
 ✔ Refact SubMenu with Grid CSS @done(22-08-10 09:46)
+✔ Add game @done(24-01-21 06:53)
+✔ Alterar proporção de Imagens @done(24-01-21 06:53)
+✔ Criar Pop Ups de Confirmação @done(24-01-21 06:53)
 ☐ Mobile First (Last)
 Corrigir tamanhos do Submenu
 Games Mobile
 Cadastro Mobile
-☐ Add game 
-☐ Edit game
+✔ Edit game @done(24-01-23 07:30)
+✔ Corrigir variáveis da Página de Edição @done(24-01-23 07:30)
+✔ Corrigir Variavel Checkbox para adicionar apenas um item de cada tipo @done(24-01-23 07:30)
+☐ Corrigir função de Add Jogo
+☐ Corrigir Conversão de Data
+☐ Corrigir Design
+☐ Refatorar Functions
 ☐ Other Types of Items, like Movies, Animes, Cartoons, Books... 
 
 

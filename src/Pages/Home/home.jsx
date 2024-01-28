@@ -8,7 +8,7 @@ export const Home = () => {
   return (
     <>
       <main className="main">
-        <h1 className="titlePage"> Biblioteca de Jogos </h1>
+        <h1 className="titlePage"> Jogos </h1>
         <Submenu /> 
         <GamesList />         
         <TopButton/>

@@ -21,7 +21,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "json-server -w ./src/db/db.json --port 3333"
+    "server": "json-server -w ./src/db/games_db_2023.json --port 3333"
   },
   "browserslist": {
     "production": [

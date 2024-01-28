@@ -1,6 +1,7 @@
 /* backgroundImage, developers, genres, id, platformList, publishers, releaseDate, squareIcon, status, summary, title, verticalCover */
 import { useState, useContext } from "react";
 import { Link, useParams, useHistory} from "react-router-dom";
+import { editGame } from "../../functions/functions";
 import { removeGame } from "../../functions/functions";
 import { GamesContext } from "../../providers/games/games"
 import "../../style/game.css"
@@ -22,9 +23,9 @@ export const Game = () => {
     history.go(0)
   }
 
-  const dateFormat = new Intl.DateTimeFormat('pt-BR')
-  const convertingDateFormat = dateFormat.format(new Date(game[0].releaseDate))
-
+  const dateFormat = new Intl.DateTimeFormat('pt-BR')  
+  const convertingDateFormat = dateFormat.format(new Date(game[0].releaseDate))  
+  
   const [gameId, setGameId] = useState(game[0].id);
   const [gameTitle, setGameTitle] = useState(game[0].title);
   const [gameSummary, setGameSummary] = useState(game[0].summary);
@@ -37,7 +38,6 @@ export const Game = () => {
   const [gameBackgroundImage, setGameBackgroundImage] = useState(game[0].backgroundImage);
   const [gameSquareIcon, setGameSquareIcon] = useState(game[0].squareIcon);
   const [gameVerticalCover, setGameVerticalCover] = useState(game[0].verticalCover);
-  
   return (
     <>
       <main className="main">
@@ -81,7 +81,9 @@ export const Game = () => {
               </div>
             </div>
             <div className="infoLinks">
-              <button> Editar </button>
+              <Link to={`/updateGame/${gameId}`}> 
+                <button> Editar </button>
+              </Link>
               <button onClick={() => {handleClickRemoveGame()}}> Excluir </button>
             </div>
           </section>

@@ -15285,6 +15285,31 @@
       "squareIcon": "https://cdn2.steamgriddb.com/icon/6b595bb87a53c615a535554667cfdde0.ico",
       "verticalCover": "https://cdn2.steamgriddb.com/grid/9dcc7bec9241f9a3efe2bdb6889d9a51.png",
       "status": "Concluído"
+    },
+    {
+      "id": 626,
+      "title": "Prince of Persia: The Two Thrones",
+      "summary": "Prince of Persia: The Two Thrones is a 2005 action-adventure video game developed by Ubisoft Montreal and Ubisoft Casablanca, and published by Ubisoft for the PlayStation 2, GameCube, Microsoft Windows, Xbox and Java (mobile phones only). The game was later censored and ported to the PlayStation Portable and Wii in 2007 under the title Prince of Persia: Rival Swords. The Wii version utilizes the motion-sensing functionality of its controller, while the PSP version added exclusive content and local multiplayer.\n",
+      "platformList": [
+        "Sony Playstation 2"
+      ],
+      "developers": [
+        "Ubisoft Montreal",
+        "Ubisoft Casablanca"
+      ],
+      "publishers": [
+        "Ubisoft"
+      ],
+      "releaseDate": "2005-12-01",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Hack and Slash"
+      ],
+      "backgroundImage": "https://cdn2.steamgriddb.com/hero/7974a38b2a42268066c03442b2cc922b.jpg",
+      "squareIcon": "https://cdn2.steamgriddb.com/icon/c4e21b9d9df296ee17ddab3dbbc851f5.png",
+      "verticalCover": "https://cdn2.steamgriddb.com/grid/abae7d98a0ce038be2705fc36f5de8d9.png",
+      "status": "Jogando"
     }
   ]
 }

@@ -19,19 +19,20 @@ PARA CRIAR PROJETO REACT, DIGITE "npm create react-app nome_do_app"
 ✔ Add game @done(24-01-21 06:53)
 ✔ Alterar proporção de Imagens @done(24-01-21 06:53)
 ✔ Criar Pop Ups de Confirmação @done(24-01-21 06:53)
-☐ Mobile First (Last)
-Corrigir tamanhos do Submenu
-Games Mobile
-Cadastro Mobile
 ✔ Edit game @done(24-01-23 07:30)
 ✔ Corrigir variáveis da Página de Edição @done(24-01-23 07:30)
-✔ Corrigir Variavel Checkbox para adicionar apenas um item de cada tipo @done(24-01-23 07:30)
+✔ Corrigir Variável Checkbox para adicionar apenas um item de cada tipo @done(24-01-23 07:30)
 ✔ Corrigir função de Add Jogo @done(24-02-02 00:23)
+✔ Colocar o Projeto Online @done(24-02-06 00:22)
+☐ Mobile First (Last)
+☐ Corrigir tamanhos do Submenu
+☐ Games Mobile
+☐ Cadastro Mobile
 ☐ Corrigir Conversão de Data
 ☐ Corrigir Design
 ☐ Refatorar Functions
 ☐ Other Types of Items, like Movies, Animes, Cartoons, Books... 
-
+☐ Criar usuários e acessos
 
 
 

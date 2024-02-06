@@ -1,177 +1,192 @@
 /* Home */
-    .main{
-        width: 96%;
-        margin: 70px auto; 
-        color: white;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .titlePage{
-        margin: 20px 5px 30px;
-        font-size: 30px;
-        font-weight: bold;
-        color: white;
-        position: relative;
-    }   
-    
-    .gamesList{
-        width: 100%;
-        height: max-content;  
-        margin: auto auto 20px auto;
-        display: grid;
-        gap: 1.2rem;
-        grid-template-columns: repeat(auto-fill, minmax(11.5rem, 1fr));
-    }
-    
-    .card{
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        position: relative;
-        transition: all 400ms;  
-    }
+.main {
+  width: 96%;
+  margin: 70px auto;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
 
-    .gameCoverLink{
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: flex-end;
-        align-items: flex-end;    
-    }
+.titlePage {
+  margin: 50px 5px 30px;
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  position: relative;
+}
 
-    .card:hover{
-        transform: scale(1.1);
-        z-index: 2;
-        border-radius: 2%;
-    }
+.gamesList {
+  width: 100%;
+  height: max-content;
+  margin: auto auto 20px auto;
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: repeat(auto-fill, minmax(11.5rem, 1fr));
+}
 
-    .card:hover .gloss{
-        width: 12.81rem;
-        height: 18.5rem;
-        background: radial-gradient(circle at 50px 40px, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.192) 70%);
-        position: absolute;
-        z-index: 2;
-        border-radius: 2%;
-    }
+.card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  transition: all 400ms;
+}
 
-    .titleGameMobile{
-      width: 92%;
-      /* background-color: #c73030; */
-      background-color: #242424;
-      position: absolute;
-      padding: 4%;
-      top: 100%;
-      left: 0;
-      font-family: 'Work Sans', sans-serif;
-      font-size: 20px;
-      color: white;   
-      text-align: center; 
-      visibility: hidden;
-    }
+.gameCoverLink {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
 
-    .card:hover .titleGameMobile {
-      visibility: visible;
-    }
+.card:hover {
+  transform: scale(1.1);
+  z-index: 2;
+  border-radius: 2%;
+}
 
-    .iconBackground{ 
-        width: 65%;
-        height: 12%;
-        background-color: #141414;
-        display: flex;
-        justify-content: flex-end;
-        position: absolute;
-        border-radius: 100px 0 0px 10px; 
-    }
+.card:hover .gloss {
+  width: 12.81rem;
+  height: 18.5rem;
+  background: radial-gradient(
+    circle at 50px 40px,
+    rgba(0, 0, 0, 0) 0,
+    rgba(0, 0, 0, 0) 50%,
+    rgba(255, 255, 255, 0.192) 70%
+  );
+  position: absolute;
+  z-index: 2;
+  border-radius: 2%;
+}
 
-    .icon{
-        height: 80%;
-        margin: auto 2px auto 4px;
-    }
+.titleGameMobile {
+  width: 92%;
+  /* background-color: #c73030; */
+  background-color: #242424;
+  position: absolute;
+  padding: 4%;
+  top: 100%;
+  left: 0;
+  font-family: "Work Sans", sans-serif;
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  visibility: hidden;
+}
 
-    .gameCover{  
-        min-width: 12.81rem;
-        height: 18.5rem;
-        margin: auto;
-        border-radius: 2%;
-        position: block;
-    }
-    
-    .noResult{
-        font-size: 25px;
-        font-weight: bold;
-        margin: 20px auto;
-    }
-    
+.card:hover .titleGameMobile {
+  visibility: visible;
+}
+
+.iconBackground {
+  width: 65%;
+  height: 12%;
+  background-color: #141414;
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  border-radius: 100px 0 0px 10px;
+}
+
+.icon {
+  height: 80%;
+  margin: auto 2px auto 4px;
+}
+
+.gameCover {
+  min-width: 12.81rem;
+  height: 18.5rem;
+  margin: auto;
+  border-radius: 2%;
+  position: block;
+}
+
+.noResult {
+  font-size: 25px;
+  font-weight: bold;
+  margin: 20px auto;
+}
+
 /* Mobile -------------------------------------------------------------------------------------------------------------------------------- */
 
-
-@media (max-width: 800px){
-  .main{
+@media (max-width: 800px) {
+  .main {
     width: 96%;
-    margin: 120px auto; 
+    margin: 120px auto;
     color: white;
     display: flex;
     flex-direction: column;
   }
 
-  .gamesList{ 
+  .gamesList {
     width: 100%;
-    height: max-content;  
+    height: max-content;
     margin: auto auto 20px auto;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
   }
-  
-  .card{
-    width: 100%;
+
+  .card {
+    width: 40%;
     height: 300px;
     margin: 10px auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     position: relative;
-    transition: all 400ms;  
+    transition: all 400ms;
   }
-  
-  .gameCoverLink{
+
+  .gameCoverLink {
     padding: 5px;
     display: flex;
     justify-content: flex-end;
-    align-items: flex-end;   
+    align-items: flex-end;
   }
-  
-  .card:hover{
+
+  .card:hover {
     transform: scale(1.05);
     z-index: 2;
   }
-  
-  .card:hover .gloss{
+
+  .card:hover .gloss {
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 50px 40px, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.192) 70%);
+    background: radial-gradient(
+      circle at 50px 40px,
+      rgba(0, 0, 0, 0) 0,
+      rgba(0, 0, 0, 0) 50%,
+      rgba(255, 255, 255, 0.192) 70%
+    );
     position: absolute;
     z-index: 2;
     border-radius: 20px;
   }
 
-  .titleGameMobile{
-    width: 500px;
+  .titleGameMobile {
+    width: 95%;
+    height: fit-content;
     background-color: #242424;
     position: absolute;
-    padding: 5px 5px 5px 20px;
-    top: 10px;
+    bottom: 10px;
     left: 0px;
-    font-family: 'Work Sans', sans-serif;
+    font-family: "Work Sans", sans-serif;
     font-size: 40px;
-    color: white;    
+    color: white;
+    visibility: hidden;
+  }
+
+  .card:hover .titleGameMobile {
     visibility: visible;
   }
-  
-  .iconBackground{ 
-    width: 8%;
+
+  .iconBackground {
+    width: 30%;
     height: 100%;
     background-color: #141414;
     padding: 1% auto;
@@ -179,29 +194,29 @@
     flex-direction: column;
     align-content: flex-end;
     position: static;
-    border-radius: 0 20px 20px 0; 
+    border-radius: 0 20px 20px 0;
   }
-  
-  .icon{
+
+  .icon {
     height: fit-content;
     width: 80%;
     margin: 5px auto;
     border: none;
-  } 
-  
-  .gameCover{  
+  }
+
+  .gameCover {
     width: 98%;
     height: 300px;
     margin: auto 10px;
-    position: static; 
+    position: static;
     object-fit: scale-down;
     background-color: #141414;
-    border-radius: 20px 0 0 20px; 
+    border-radius: 20px 0 0 20px;
   }
-  
-  .noResult{
+
+  .noResult {
     font-size: 25px;
     font-weight: bold;
     margin: 20px auto;
   }
-} 
+}

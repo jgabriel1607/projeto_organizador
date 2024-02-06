@@ -334,6 +334,7 @@
   text-align: center;
   left: 0;
   top: 54px;
+  visibility: hidden;
 }
 
 .stickySearchArea {
@@ -350,6 +351,7 @@
   left: 0;
   top: 0;
   z-index: 3;
+  visibility: visible;
 }
 
 .searchInput {

@@ -1,17 +1,19 @@
 /* backgroundImage, developers, genres, id, platformList, publishers, releaseDate, squareIcon, status, summary, title, verticalCover */
 import React from "react";
-import { api } from "../../services/Api/apiConfig"
 import { useState, useContext } from "react";
 import { Link, useParams, useHistory} from "react-router-dom";
 import { GamesContext } from "../../providers/games/games"
+import { addGame } from "../../functions/functions";
+import placeholderCapa from "../../images/placeholder_capa.png";
+import placeholderHorizontal from "../../images/placeholder_horizontal.png";
+import placeholderIcone from "../../images/placeholder_icone.png";
 import "../../style/game.css"
 import "../../style/register.css"
 
-
 export const Register = () => {	
 	const history = useHistory()
-	const {games, unchangedGamesList} = useContext(GamesContext)
-	const [gameId, setGameId] = useState(games.length);
+	const {games} = useContext(GamesContext)
+	const [gameId, setGameId] = useState(games[games.length-1].id + 1);
 	const [gameTitle, setGameTitle] = useState("");
 	const [gameSummary, setGameSummary] = useState("");
 	const [gameStatus, setGameStatus] = useState("Nenhum");	
@@ -20,48 +22,61 @@ export const Register = () => {
 	const [gamePlatformList, setGamePlatformList] = useState([]);
 	const [gameDevelopers, setGameDevelopers] = useState([]);
 	const [gamePublishers, setGamePublishers] = useState([]);	
-	const [gameBackgroundImage, setGameBackgroundImage] = useState("");
-	const [gameSquareIcon, setGameSquareIcon] = useState("");
-	const [gameVerticalCover, setGameVerticalCover] = useState("");
+	const [gameBackgroundImage, setGameBackgroundImage] = useState(placeholderHorizontal);
+	const [gameSquareIcon, setGameSquareIcon] = useState(placeholderIcone);
+	const [gameVerticalCover, setGameVerticalCover] = useState(placeholderCapa);
+	const[newGenres, setNewGenres] = useState(false)
+
 
 	const handleCheckboxGenre = (event) => {
 		let checkboxValue = event.target.value
 		let checkboxChecked = event.target.checked
+		let result = gameGenre.find((item) => item == checkboxValue)
+
 		if (checkboxChecked){
-			setGameGenre([...gameGenre, checkboxValue])
-		}		
+			if (newGenres == false){
+				setGameGenre([])
+				setGameGenre([checkboxValue])
+				setNewGenres(true)
+			}
+			else{
+				if (result !== checkboxValue){
+					setGameGenre([...gameGenre, checkboxValue])
+				}
+			}
+		}
+		else{
+			let newArray = gameGenre.filter((item) => item !== checkboxValue)
+			setGameGenre(newArray)
+		}
+    console.log(gameGenre)
 	}	
 
 	const handleCheckboxPlatform = (event) => {
 		let checkboxValue = event.target.value
 		let checkboxChecked = event.target.checked
+		let result = gamePlatformList.find((item) => item == checkboxValue)
+
 		if (checkboxChecked){
-			setGamePlatformList([...gamePlatformList, checkboxValue])
-		}		
+			if (newGenres == false){
+				setGamePlatformList([])
+				setGamePlatformList([checkboxValue])
+				setNewGenres(true)
+			}
+			else{
+				if (result !== checkboxValue){
+					setGamePlatformList([...gamePlatformList, checkboxValue])
+				}
+			}
+		}
+		else{
+			let newArray = gamePlatformList.filter((item) => item !== checkboxValue)
+			setGamePlatformList(newArray)
+		}	
 	}
 
-	const addNewGame = (e) => {
-		e.preventDefault()
-		const newGame = {
-			id: games.length,
-			title: gameTitle,
-			summary: gameSummary,
-			platformList: gamePlatformList,
-			developers: gameDevelopers,
-			publishers: gamePublishers,
-			releaseDate: gameReleaseDate,
-			genres: gameGenre,
-			backgroundImage: gameBackgroundImage,
-			squareIcon: gameSquareIcon,
-			verticalCover: gameVerticalCover,
-			status: gameStatus
-		}
-		
-		api.post('/games', newGame)
-		.then((res) => {console.log(res)})
-		.catch((e) => {console.log(e)})
-
-		alert("Jogo Adicionado com Sucesso!")
+	const handleClickAddGame = () => {
+		addGame(gameId, gameTitle, gameSummary, gamePlatformList, gameDevelopers, gamePublishers, gameReleaseDate, gameGenre, gameBackgroundImage, gameSquareIcon, gameVerticalCover, gameStatus, history)			
 
 		history.push("/")	
 		history.go(0)
@@ -72,46 +87,29 @@ export const Register = () => {
       <main className="main">
         <h1 className="titlePage"> Cadastro de Jogo</h1>
         <section className="content">
-        	<form className="registerGame" onSubmit={addNewGame}>
+        	<form className="registerGame" onSubmit={handleClickAddGame}>
 				<div className="registerLeftSide">
 					<div className="registerItem">
 						<label htmlFor="titleGame" className="labelTitle"> Título: </label>
-						<input type="text" name="titleGame" id="titleGame" className="textInputs" placeholder="Título do Jogo" required onChange={() => {setGameTitle(titleGame.value)}}/>
+						<input type="text" name="titleGame" id="titleGame" className="textInputs" placeholder="Título do Jogo" onChange={() => {setGameTitle(titleGame.value)}}/>
 					</div>
 					<div className="registerItem">
 						<label htmlFor="summaryGame" className="labelTitle"> Resumo: </label>
-						<textarea name="summaryGame" id="summaryGame" className="areaInput" placeholder="Resumo do Jogo" required onChange={() => {setGameSummary(summaryGame.value)}}></textarea>
+						<textarea name="summaryGame" id="summaryGame" className="areaInput" placeholder="Resumo do Jogo" onChange={() => {setGameSummary(summaryGame.value)}}></textarea>
 					</div>					
 					<div className="registerItem">
 						<label htmlFor="developers" className="labelTitle"> Desenvolvedoras: </label>
-						<input type="text" name="developers" id="developers"  className="textInputs" placeholder="Desenvolvedoras" required onChange={() => {setGameDevelopers(developers.value.split(','))}}/>
+						<input type="text" name="developers" id="developers"  className="textInputs" placeholder="Desenvolvedoras" onChange={() => {setGameDevelopers(developers.value.split(','))}}/>
 					</div>					
 					<p className="observacaoInfo"> *Caso tenha mais de 1 item, separar por ",". </p>
 					<div className="registerItem">
 						<label htmlFor="publishers" className="labelTitle"> Distribuidoras: </label>
-						<input type="text" name="publishers" id="publishers"  className="textInputs" placeholder="Distribuidoras" required onChange={() => {setGamePublishers(publishers.value.split(','))}}/>
+						<input type="text" name="publishers" id="publishers"  className="textInputs" placeholder="Distribuidoras" onChange={() => {setGamePublishers(publishers.value.split(','))}}/>
 					</div>					
 					<p className="observacaoInfo"> *Caso tenha mais de 1 item, separar por ",". </p>
 					<div className="registerItem">
 						<label htmlFor="releaseDate" className="labelTitle"> Data de Lançamento: </label>
-						<input type="date" name="releaseDate" id="releaseDate"  className="dataInput" required onChange={() => {setGameReleaseDate(releaseDate.value)}}/>
-					</div>
-					<div className="registerItem">
-						<label className="labelTitle"> Imagens: </label>
-						<div className="itemImages">
-						<div className="images">
-							<label htmlFor="verticalImage" className="titleImages"> Imagem de Capa: </label>
-							<input type="url" name="verticalImage" id="verticalImage" className="textInputs" placeholder="URL da Imagem de Capa" required onChange={() => {setGameVerticalCover(verticalImage.value)}}/>
-						</div>
-						<div className="images">
-							<label htmlFor="backgroundImage" className="titleImages"> Imagem Horizontal: </label>
-							<input type="url" name="backgroundImage" id="backgroundImage" className="textInputs" placeholder="URL da Imagem de Horizontal" required onChange={() => {setGameBackgroundImage(backgroundImage.value)}}/>
-						</div>
-						<div className="images">
-							<label htmlFor="iconImage" className="titleImages"> Ícone: </label>
-							<input type="url" name="iconImage" id="iconImage" className="textInputs" placeholder="URL da Imagem de Ícone" required onChange={() => {setGameSquareIcon(iconImage.value)}}/>
-						</div>
-						</div>
+						<input type="date" name="releaseDate" id="releaseDate"  className="dataInput" onChange={() => {setGameReleaseDate(releaseDate.value)}}/>
 					</div>
 					<div className="registerItem">
 						<label className="labelTitle"> Status: </label>
@@ -122,6 +120,26 @@ export const Register = () => {
 								<option value="Concluído"> Concluido </option>
 							</select>
 						</div>	
+					</div>
+					<div className="registerItem">
+						<label className="labelTitle"> Imagens: </label>
+						<div className="itemImages">
+						<div className="images">
+							<label htmlFor="verticalImage" className="titleImages"> Imagem de Capa: </label>
+							<img src={gameVerticalCover} alt="Imagem de Capa" className="miniaturaVerticalImage"/>
+							<input type="url" name="verticalImage" id="verticalImage" className="textInputs" placeholder="URL da Imagem de Capa" value={gameVerticalCover} onChange={() => {setGameVerticalCover(verticalImage.value)}}/>
+						</div>
+						<div className="images">
+							<label htmlFor="backgroundImage" className="titleImages"> Imagem Horizontal: </label>
+							<img src={gameBackgroundImage} alt="Imagem Horizontal" className="miniaturaBackgroundImage"/>
+							<input type="url" name="backgroundImage" id="backgroundImage" className="textInputs" placeholder="URL da Imagem de Horizontal" value={gameBackgroundImage} onChange={() => {setGameBackgroundImage(backgroundImage.value)}}/>
+						</div>
+						<div className="images">
+							<label htmlFor="iconImage" className="titleImages"> Ícone: </label>
+							<img src={gameSquareIcon} alt="Imagem de Ícone" className="miniaturaSquareIcon"/>
+							<input type="url" name="iconImage" id="iconImage" className="textInputs" placeholder="URL da Imagem de Ícone" value={gameSquareIcon} onChange={() => {setGameSquareIcon(iconImage.value)}}/>
+						</div>
+						</div>
 					</div>
 				</div>
 				<div className="registerRightSide">

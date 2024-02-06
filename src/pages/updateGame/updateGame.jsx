@@ -4,13 +4,14 @@ import { api } from "../../services/Api/apiConfig"
 import { useState, useContext } from "react";
 import { Link, useParams, useHistory} from "react-router-dom";
 import { GamesContext } from "../../providers/games/games"
+import { editGame } from "../../functions/functions";
 import "../../style/game.css"
-import "../../style/register.css"
+import "../../style/editGame.css"
 
 
 export const UpdateGamePage = () => {
   
-	const {games, unchangedGamesList} = useContext(GamesContext)  
+	const {games} = useContext(GamesContext)  
 	const history = useHistory()
 	const param = useParams().gameId  
 	const game = games.filter((gameInfo) => {
@@ -84,27 +85,8 @@ export const UpdateGamePage = () => {
 		}	
 	}
 
-	const updateGame = (e) => {
-		e.preventDefault()
-
-		const newGame = {
-			id: gameId,
-			title: gameTitle,
-			summary: gameSummary,
-			platformList: gamePlatformList,
-			developers: gameDevelopers,
-			publishers: gamePublishers,
-			releaseDate: gameReleaseDate,
-			genres: gameGenre,
-			backgroundImage: gameBackgroundImage,
-			squareIcon: gameSquareIcon,
-			verticalCover: gameVerticalCover,
-			status: gameStatus
-		}
-
-		api.put(`/games/${gameId}`, newGame)
-
-		alert("Jogo Atualizado com Sucesso!")
+  const handleClickEditGame = () => {
+		editGame(gameId, gameTitle, gameSummary, gamePlatformList, gameDevelopers, gamePublishers, gameReleaseDate, gameGenre, gameBackgroundImage, gameSquareIcon, gameVerticalCover, gameStatus, history)			
 
 		history.push("/")	
 		history.go(0)
@@ -115,7 +97,7 @@ export const UpdateGamePage = () => {
       <main className="main">
         <h1 className="titlePage"> Editando: {originalGameName}</h1>
         <section className="content">
-        	<form className="registerGame" onSubmit={updateGame}>
+        	<form className="registerGame" onSubmit={handleClickEditGame}>
 				<div className="registerLeftSide">
 					<div className="registerItem">
 						<label htmlFor="titleGame" className="labelTitle"> Título: </label>
@@ -140,23 +122,6 @@ export const UpdateGamePage = () => {
 						<input type="date" name="releaseDate" id="releaseDate"  className="dataInput" defaultValue={gameReleaseDate} onChange={() => {setGameReleaseDate(releaseDate.value)}}/>
 					</div>
 					<div className="registerItem">
-						<label className="labelTitle"> Imagens: </label>
-						<div className="itemImages">
-						<div className="images">
-							<label htmlFor="verticalImage" className="titleImages"> Imagem de Capa: </label>
-							<input type="url" name="verticalImage" id="verticalImage" className="textInputs" placeholder="URL da Imagem de Capa" value={gameVerticalCover} onChange={() => {setGameVerticalCover(verticalImage.value)}}/>
-						</div>
-						<div className="images">
-							<label htmlFor="backgroundImage" className="titleImages"> Imagem Horizontal: </label>
-							<input type="url" name="backgroundImage" id="backgroundImage" className="textInputs" placeholder="URL da Imagem de Horizontal" value={gameBackgroundImage} onChange={() => {setGameBackgroundImage(backgroundImage.value)}}/>
-						</div>
-						<div className="images">
-							<label htmlFor="iconImage" className="titleImages"> Ícone: </label>
-							<input type="url" name="iconImage" id="iconImage" className="textInputs" placeholder="URL da Imagem de Ícone" value={gameSquareIcon} onChange={() => {setGameSquareIcon(iconImage.value)}}/>
-						</div>
-						</div>
-					</div>
-					<div className="registerItem">
 						<label className="labelTitle"> Status: </label>
 						<div className="itemStatus">
 							<select name="selectStatus" id="selectStatus" className="options" onChange={() => {setGameStatus(selectStatus.value)}}>
@@ -165,6 +130,26 @@ export const UpdateGamePage = () => {
 								<option value="Concluído"> Concluido </option>
 							</select>
 						</div>	
+					</div>
+					<div className="registerItem">
+						<label className="labelTitle"> Imagens: </label>
+						<div className="itemImages">
+						<div className="images">
+							<label htmlFor="verticalImage" className="titleImages"> Imagem de Capa: </label>
+							<img src={gameVerticalCover} alt="Imagem de Capa" className="miniaturaVerticalImage"/>
+							<input type="url" name="verticalImage" id="verticalImage" className="textInputs" placeholder="URL da Imagem de Capa" value={gameVerticalCover} onChange={() => {setGameVerticalCover(verticalImage.value)}}/>
+						</div>
+						<div className="images">
+							<label htmlFor="backgroundImage" className="titleImages"> Imagem Horizontal: </label>
+							<img src={gameBackgroundImage} alt="Imagem Horizontal" className="miniaturaBackgroundImage"/>
+							<input type="url" name="backgroundImage" id="backgroundImage" className="textInputs" placeholder="URL da Imagem de Horizontal" value={gameBackgroundImage} onChange={() => {setGameBackgroundImage(backgroundImage.value)}}/>
+						</div>
+						<div className="images">
+							<label htmlFor="iconImage" className="titleImages"> Ícone: </label>
+							<img src={gameSquareIcon} alt="Imagem de Ícone" className="miniaturaSquareIcon"/>
+							<input type="url" name="iconImage" id="iconImage" className="textInputs" placeholder="URL da Imagem de Ícone" value={gameSquareIcon} onChange={() => {setGameSquareIcon(iconImage.value)}}/>
+						</div>
+						</div>
 					</div>
 				</div>
 				<div className="registerRightSide">

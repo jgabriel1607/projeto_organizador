@@ -44,11 +44,7 @@ export const Game = () => {
         <section className="content">
           <section className="aboutGame">
             <h1 className="gamesTitle"> {gameTitle} </h1>
-            <img
-              src={gameBackgroundImage}
-              alt="gameBackgroundImge"
-              className="gameBackgroundImage"
-            />
+            <img src={gameBackgroundImage} alt="gameBackgroundImge" className="gameBackgroundImage"/>
             <div className="gameSummary">
               <p> {gameSummary} </p>
             </div>

@@ -265,22 +265,22 @@ export function scrollFunctions() {
 
   let buttonVar = document.querySelector("#backToTop");
   window.onscroll = function fixedSubMenuAndTopButton() {
-    // Fixed SubMenu
-    if (window.scrollY > stickySubmenu) {
-      submenu.classList.remove("submenu");
-      submenu.classList.add("stickySubmenu");
-    } else {
-      submenu.classList.remove("stickySubmenu");
-      submenu.classList.add("submenu");
-    }
-    // Fixed Search Area
-    if (window.scrollY > stickySearchArea) {
-      searchArea.classList.remove("searchArea");
-      searchArea.classList.add("stickySearchArea");
-    } else {
-      searchArea.classList.remove("stickySearchArea");
-      searchArea.classList.add("searchArea");
-    }
+    // // Fixed SubMenu
+    // if (window.scrollY > stickySubmenu) {
+    //   submenu.classList.remove("submenu");
+    //   submenu.classList.add("stickySubmenu");
+    // } else {
+    //   submenu.classList.remove("stickySubmenu");
+    //   submenu.classList.add("submenu");
+    // }
+    // // Fixed Search Area
+    // if (window.scrollY > stickySearchArea) {
+    //   searchArea.classList.remove("searchArea");
+    //   searchArea.classList.add("stickySearchArea");
+    // } else {
+    //   searchArea.classList.remove("stickySearchArea");
+    //   searchArea.classList.add("searchArea");
+    // }
     // Show Button on Scroll Down
     if (
       document.body.scrollTop > 250 ||
